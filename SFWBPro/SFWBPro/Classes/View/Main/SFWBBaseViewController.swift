@@ -13,6 +13,7 @@ class SFWBBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor.yw_random()
     }
 
     override func didReceiveMemoryWarning() {
