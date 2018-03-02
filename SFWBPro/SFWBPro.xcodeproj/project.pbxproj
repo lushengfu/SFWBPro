@@ -33,6 +33,7 @@
 		3DD641F1204808CC00E33A94 /* UIView+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641E1204808CC00E33A94 /* UIView+CZAddition.m */; };
 		3DD641F2204808CC00E33A94 /* UIView+JKFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641E3204808CC00E33A94 /* UIView+JKFrame.m */; };
 		3DD641F3204808CC00E33A94 /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641E5204808CC00E33A94 /* UIViewController+CZAddition.m */; };
+		3DD641F72048EC5E00E33A94 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		3DD641E4204808CC00E33A94 /* UIViewController+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CZAddition.h"; sourceTree = "<group>"; };
 		3DD641E5204808CC00E33A94 /* UIViewController+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CZAddition.m"; sourceTree = "<group>"; };
 		3DD641F42048092E00E33A94 /* SFWeibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SFWeibo-Bridge.h"; sourceTree = "<group>"; };
+		3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 		3DD641B22047F80E00E33A94 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3DD641F52048EBB600E33A94 /* Extensions */,
 				3DD641C8204808CC00E33A94 /* AddItions */,
 			);
 			path = Tools;
@@ -300,6 +303,14 @@
 				3DD641E5204808CC00E33A94 /* UIViewController+CZAddition.m */,
 			);
 			path = AddItions;
+			sourceTree = "<group>";
+		};
+		3DD641F52048EBB600E33A94 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,6 +456,7 @@
 				3DD641C52047FA3A00E33A94 /* SFWBDiscoverViewController.swift in Sources */,
 				3DD641C12047FA0500E33A94 /* SFWBHomeViewController.swift in Sources */,
 				3DD641F2204808CC00E33A94 /* UIView+JKFrame.m in Sources */,
+				3DD641F72048EC5E00E33A94 /* Bundle+Extension.swift in Sources */,
 				3DD641832047E9D600E33A94 /* AppDelegate.swift in Sources */,
 				3DD641EF204808CC00E33A94 /* UILabel+CZAddition.m in Sources */,
 				3DD641F3204808CC00E33A94 /* UIViewController+CZAddition.m in Sources */,
