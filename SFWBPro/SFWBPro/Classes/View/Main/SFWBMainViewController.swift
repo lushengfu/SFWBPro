@@ -97,7 +97,7 @@ extension SFWBMainViewController {
             [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12)],
             for: UIControlState.init(rawValue: 0))
         
-        let nav = UINavigationController(rootViewController: vc)
+        let nav = SFWBNavigationViewController(rootViewController: vc)
         
         return nav
     }

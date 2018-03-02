@@ -28,7 +28,13 @@ class SFWBHomeViewController: SFWBBaseViewController {
     override func setupUI() {
         super.setupUI()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", style: .plain, target: self, action: #selector(showFriends));
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
+//        let button : UIButton = UIButton.yw_textButton("好友", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
+//        button.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
+//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: button);
+        
+//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", style: .plain, target: self, action: #selector(showFriends));
     }
     
     override func didReceiveMemoryWarning() {

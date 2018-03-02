@@ -35,6 +35,7 @@
 		3DD641F3204808CC00E33A94 /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641E5204808CC00E33A94 /* UIViewController+CZAddition.m */; };
 		3DD641F72048EC5E00E33A94 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */; };
 		3DD641FA2049236E00E33A94 /* SFWBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */; };
+		3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		3DD641F42048092E00E33A94 /* SFWeibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SFWeibo-Bridge.h"; sourceTree = "<group>"; };
 		3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBDemoViewController.swift; sourceTree = "<group>"; };
+		3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */,
+				3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 			files = (
 				3DD641ED204808CC00E33A94 /* UIColor+CZAddition.m in Sources */,
 				3DD641E6204808CC00E33A94 /* NSArray+Log.m in Sources */,
+				3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */,
 				3DD641EE204808CC00E33A94 /* UIImage+Extension.m in Sources */,
 				3DD641C32047FA1E00E33A94 /* SFWBMessageViewController.swift in Sources */,
 				3DD641E7204808CC00E33A94 /* NSAttributedString+CZAdditon.m in Sources */,
