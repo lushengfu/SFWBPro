@@ -17,6 +17,13 @@ class SFWBMainViewController: UITabBarController {
         // 添加发布按钮
         addComposeButton()
     }
+    
+    // MARK: 发布微博点击事件
+    // FIXME: 发布微博
+    // @objc  允许这个函数在运行时通过OC的消息机制被调用
+    @objc fileprivate func composeStatus() {
+        print("发布微博")
+    }
 
     // 懒加载发布按钮
     fileprivate lazy var composeButton : UIButton = UIButton.yw_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
@@ -36,10 +43,13 @@ extension SFWBMainViewController {
         
         let count = childViewControllers.count
         
-        let width = view.bounds.width / CGFloat(count) - 1 // 这里减1,是要完全覆盖tabbarItem的扩容区
+        let width = view.bounds.width / CGFloat(count) - 1 // 这里减1,是要完全覆盖tabbarItem的扩容区(容错区)
         
         // CGRectInset 正数是向内缩进,负数是向外扩展
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
+        
+        // 添加监听方法
+        composeButton.addTarget(self, action: #selector(composeStatus), for: .touchUpInside)
     }
     
     // 设置子控制器

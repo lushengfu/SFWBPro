@@ -34,6 +34,7 @@
 		3DD641F2204808CC00E33A94 /* UIView+JKFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641E3204808CC00E33A94 /* UIView+JKFrame.m */; };
 		3DD641F3204808CC00E33A94 /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641E5204808CC00E33A94 /* UIViewController+CZAddition.m */; };
 		3DD641F72048EC5E00E33A94 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */; };
+		3DD641FA2049236E00E33A94 /* SFWBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		3DD641E5204808CC00E33A94 /* UIViewController+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CZAddition.m"; sourceTree = "<group>"; };
 		3DD641F42048092E00E33A94 /* SFWeibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SFWeibo-Bridge.h"; sourceTree = "<group>"; };
 		3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBDemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 		3DD641B32047F80E00E33A94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DD641F82049234A00E33A94 /* Test */,
 				3DD641B62047F80E00E33A94 /* Main */,
 				3DD641B52047F80E00E33A94 /* Home */,
 				3DD641B72047F80E00E33A94 /* Message */,
@@ -311,6 +314,14 @@
 				3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3DD641F82049234A00E33A94 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +479,7 @@
 				3DD641F0204808CC00E33A94 /* UIScreen+CZAddition.m in Sources */,
 				3DD641EB204808CC00E33A94 /* NSString+CZPath.m in Sources */,
 				3DD641EA204808CC00E33A94 /* NSString+CZHash.m in Sources */,
+				3DD641FA2049236E00E33A94 /* SFWBDemoViewController.swift in Sources */,
 				3DD641BF2047F98D00E33A94 /* SFWBBaseViewController.swift in Sources */,
 				3DD641F1204808CC00E33A94 /* UIView+CZAddition.m in Sources */,
 			);
