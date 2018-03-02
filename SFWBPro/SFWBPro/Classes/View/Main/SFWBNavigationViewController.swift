@@ -10,6 +10,13 @@ import UIKit
 
 class SFWBNavigationViewController: UINavigationController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // 先隐藏导航栏
+        navigationBar.isHidden = true
+    }
+    
     // 重写push方法,隐藏tabbar
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         

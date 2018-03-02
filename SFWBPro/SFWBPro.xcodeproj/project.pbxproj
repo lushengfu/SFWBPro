@@ -36,6 +36,7 @@
 		3DD641F72048EC5E00E33A94 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */; };
 		3DD641FA2049236E00E33A94 /* SFWBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */; };
 		3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */; };
+		3DD641FE204953C400E33A94 /* SFSecondNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		3DD641F62048EC5E00E33A94 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBDemoViewController.swift; sourceTree = "<group>"; };
 		3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSecondNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 			children = (
 				3DD641BA2047F93400E33A94 /* SFWBMainViewController.swift */,
 				3DD641BC2047F97500E33A94 /* SFWBNavigationViewController.swift */,
+				3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */,
 				3DD641BE2047F98D00E33A94 /* SFWBBaseViewController.swift */,
 			);
 			path = Main;
@@ -473,6 +476,7 @@
 				3DD641F2204808CC00E33A94 /* UIView+JKFrame.m in Sources */,
 				3DD641F72048EC5E00E33A94 /* Bundle+Extension.swift in Sources */,
 				3DD641832047E9D600E33A94 /* AppDelegate.swift in Sources */,
+				3DD641FE204953C400E33A94 /* SFSecondNavigationBar.swift in Sources */,
 				3DD641EF204808CC00E33A94 /* UILabel+CZAddition.m in Sources */,
 				3DD641F3204808CC00E33A94 /* UIViewController+CZAddition.m in Sources */,
 				3DD641EC204808CC00E33A94 /* UIButton+CZAddition.m in Sources */,
