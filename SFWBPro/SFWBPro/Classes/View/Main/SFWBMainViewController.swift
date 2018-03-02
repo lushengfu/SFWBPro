@@ -9,17 +9,20 @@
 import UIKit
 
 class SFWBMainViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // 设置子控制器
         setupChildController()
+        // 添加发布按钮
+        addComposeButton()
     }
 
+    // 懒加载发布按钮
+    fileprivate lazy var composeButton : UIButton = UIButton.yw_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
 
 }
@@ -27,12 +30,25 @@ class SFWBMainViewController: UITabBarController {
 /// 相当于OC的分类, 同样不能定义属性,只能定义方法
 extension SFWBMainViewController {
     
+    // 添加发布按钮
+    fileprivate func addComposeButton() {
+        tabBar.addSubview(composeButton)
+        
+        let count = childViewControllers.count
+        
+        let width = view.bounds.width / CGFloat(count) - 1 // 这里减1,是要完全覆盖tabbarItem的扩容区
+        
+        // CGRectInset 正数是向内缩进,负数是向外扩展
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
+    }
+    
     // 设置子控制器
     fileprivate func setupChildController() {
         
         let array = [
             ["clsName" : "SFWBHomeViewController", "title" : "首页", "imageName" : "home"],
             ["clsName" : "SFWBMessageViewController", "title" : "消息", "imageName" : "message_center"],
+            ["clsName" : "UIViewController"],
             ["clsName" : "SFWBDiscoverViewController", "title" : "发现", "imageName" : "discover"],
             ["clsName" : "SFWBProfileViewController", "title" : "我的", "imageName" : "profile"]
         ]
@@ -61,6 +77,16 @@ extension SFWBMainViewController {
         vc.title = title
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal)
+        
+        // 修改tabbar的字体颜色
+        vc.tabBarItem.setTitleTextAttributes(
+            [NSAttributedStringKey.foregroundColor : UIColor.orange],
+            for: .highlighted)
+        // 修改字体大小
+        vc.tabBarItem.setTitleTextAttributes(
+            [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12)],
+            for: UIControlState.init(rawValue: 0))
+        
         let nav = UINavigationController(rootViewController: vc)
         
         return nav
