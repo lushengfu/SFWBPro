@@ -8,8 +8,13 @@
 
 import UIKit
 
+private let statusCell = "statusCell"
+
 class SFWBHomeViewController: SFWBBaseViewController {
 
+    // 微博数据源
+    fileprivate lazy var statusList = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,13 +33,15 @@ class SFWBHomeViewController: SFWBBaseViewController {
     override func setupUI() {
         super.setupUI()
         
-        
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
-//        let button : UIButton = UIButton.yw_textButton("好友", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
-//        button.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: button);
         
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", style: .plain, target: self, action: #selector(showFriends));
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: statusCell)
+    }
+    
+    override func loadData() {
+        for i in 0..<10 {
+            statusList.insert(i.description, at: 0)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,5 +50,15 @@ class SFWBHomeViewController: SFWBBaseViewController {
 }
 
 extension SFWBHomeViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statusList.count
+    }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let sCell = tableView.dequeueReusableCell(withIdentifier: statusCell, for: indexPath)
+        
+        sCell.textLabel?.text = statusList[indexPath.row]
+        
+        return sCell
+    }
 }

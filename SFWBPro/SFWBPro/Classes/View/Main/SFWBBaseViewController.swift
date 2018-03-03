@@ -26,6 +26,8 @@ class SFWBBaseViewController: UIViewController {
         super.viewDidLoad()
         // UI设置
         setupUI()
+        // 加载数据
+        loadData()
     }
     
     // 标题设置
@@ -52,8 +54,6 @@ class SFWBBaseViewController: UIViewController {
 //            for view in self.navigationBar.subviews {
 //                print(view)
 //            }
-            
-            
         }
     }
     
@@ -63,6 +63,12 @@ class SFWBBaseViewController: UIViewController {
         setupNavigationBar()
         
         setupTableView()
+    }
+    
+    
+    /// 加载数据源方法
+    func loadData() {
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,7 +98,7 @@ extension SFWBBaseViewController {
         
         navigationBar.items = [navItem]
         // 设置背景颜色
-        //        navigationBar.barTintColor = UIColor.yw_color(withHex: 0xf6f6f6)
+        // navigationBar.barTintColor = UIColor.yw_color(withHex: 0xf6f6f6)
         navigationBar.backgroundColor = UIColor.yw_color(withHex: 0xf6f6f6)
         // 设置标题字体颜色
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.darkGray]
