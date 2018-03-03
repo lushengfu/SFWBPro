@@ -27,7 +27,7 @@ class SFWBDemoViewController: SFWBBaseViewController {
     override func setupUI() {
         super.setupUI()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", target: self, selector: #selector(showNext))
+        navItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", target: self, selector: #selector(showNext))
 //        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", style: .plain, target: self, action: #selector(showNext))
     
     }

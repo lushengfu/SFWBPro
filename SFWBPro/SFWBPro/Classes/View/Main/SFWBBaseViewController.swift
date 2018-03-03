@@ -55,6 +55,9 @@ class SFWBBaseViewController: UIViewController {
         view.addSubview(navigationBar)
         
         navigationBar.items = [navItem]
+        
+//        navigationBar.barTintColor = UIColor.yw_color(withHex: 0xf6f6f6)
+        navigationBar.backgroundColor = UIColor.yw_color(withHex: 0xf6f6f6)
     }
 
     override func didReceiveMemoryWarning() {

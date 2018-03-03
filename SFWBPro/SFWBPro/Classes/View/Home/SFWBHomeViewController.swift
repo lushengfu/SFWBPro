@@ -29,7 +29,7 @@ class SFWBHomeViewController: SFWBBaseViewController {
         super.setupUI()
         
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
+        navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
 //        let button : UIButton = UIButton.yw_textButton("好友", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
 //        button.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
 //        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: button);

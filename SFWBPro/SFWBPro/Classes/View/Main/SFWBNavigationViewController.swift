@@ -23,9 +23,28 @@ class SFWBNavigationViewController: UINavigationController {
 //         不是栈底控制器,就隐藏tabbar
         if childViewControllers.count > 0 {
             hidesBottomBarWhenPushed = true
+            
+            // 添加返回按钮
+            if let vc = viewController as? SFWBBaseViewController {
+                
+                var title = "返回"
+                
+                if childViewControllers.count == 1 {
+                    title = childViewControllers.first?.title ?? "返回"
+                }
+                
+                vc.navItem.leftBarButtonItem = UIBarButtonItem.init(title: title, target: self, selector: #selector(goBackParent))
+                
+            }
+            
         }
         
+        
         super.pushViewController(viewController, animated: true)
+    }
+    
+    @objc fileprivate func goBackParent() {
+        popViewController(animated: true)
     }
 
 }
