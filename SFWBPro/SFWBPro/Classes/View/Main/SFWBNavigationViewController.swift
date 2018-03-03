@@ -33,7 +33,7 @@ class SFWBNavigationViewController: UINavigationController {
                     title = childViewControllers.first?.title ?? "返回"
                 }
                 
-                vc.navItem.leftBarButtonItem = UIBarButtonItem.init(title: title, target: self, selector: #selector(goBackParent))
+                vc.navItem.leftBarButtonItem = UIBarButtonItem.init(title: title, target: self, selector: #selector(goBackParent), isBack: true)
                 
             }
             

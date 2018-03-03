@@ -51,13 +51,15 @@ class SFWBBaseViewController: UIViewController {
     
     func setupUI() {
         view.backgroundColor = UIColor.yw_random()
-        
+        // 添加自定义导航栏
         view.addSubview(navigationBar)
         
         navigationBar.items = [navItem]
-        
+        // 设置背景颜色
 //        navigationBar.barTintColor = UIColor.yw_color(withHex: 0xf6f6f6)
         navigationBar.backgroundColor = UIColor.yw_color(withHex: 0xf6f6f6)
+        // 设置标题字体颜色
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.darkGray]
     }
 
     override func didReceiveMemoryWarning() {
