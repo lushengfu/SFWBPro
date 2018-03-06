@@ -15,8 +15,14 @@ import UIKit
 // 2. 不能重写父类的方法
 
 class SFWBBaseViewController: UIViewController {
-
+    
     var tableView : UITableView?
+    // 添加刷新控件
+    var refreshControl : UIRefreshControl?
+    
+    // 是否上拉
+    var isPullUp = false
+    
     
     lazy var navigationBar = SFSecondNavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64))
     
@@ -80,7 +86,7 @@ class SFWBBaseViewController: UIViewController {
     
     
     /// 加载数据源方法
-    func loadData() {
+    @objc func loadData() {
         
     }
     
@@ -105,6 +111,14 @@ extension SFWBBaseViewController {
         
         tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height, 0,
                                                    tabBarController?.tabBar.bounds.height ?? 49, 0)
+        
+        // 初始化刷新控件
+        refreshControl = UIRefreshControl()
+        // 添加刷新控件到表格视图
+        tableView?.addSubview(refreshControl!)
+        // 刷新控件添加事件
+        refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+        
     }
     
     // 设置自定义导航栏
@@ -132,5 +146,30 @@ extension SFWBBaseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let row = indexPath.row
+        
+        let section = tableView.numberOfSections - 1
+        
+        if row < 0 && section < 0 {
+            return
+        }
+        
+        let count = tableView.numberOfRows(inSection: section)
+        
+        if row == count - 1 && !isPullUp{
+            print("上拉刷新")
+            
+            isPullUp = true
+            
+            loadData()
+            
+        }
+        
+        
+    }
+    
 }
 

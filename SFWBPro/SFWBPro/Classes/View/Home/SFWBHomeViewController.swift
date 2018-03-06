@@ -39,8 +39,24 @@ class SFWBHomeViewController: SFWBBaseViewController {
     }
     
     override func loadData() {
-        for i in 0..<15 {
-            statusList.insert(i.description, at: 0)
+        
+        // 模拟数据延迟加载
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            
+            for i in 0..<15 {
+                if self.isPullUp {
+                    self.statusList.append("上拉\(i.description)")
+                }
+                else {
+                    self.statusList.insert(i.description, at: 0)
+                }
+                
+            }
+            
+            self.tableView?.reloadData()
+            
+            // 上拉标记重置
+            self.isPullUp = false
         }
     }
     
