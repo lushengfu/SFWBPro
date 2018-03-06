@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D92A8D2204E9EC300333D9D /* SFWBVistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */; };
 		3DD641832047E9D600E33A94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641822047E9D600E33A94 /* AppDelegate.swift */; };
 		3DD6418A2047E9D600E33A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD641892047E9D600E33A94 /* Assets.xcassets */; };
 		3DD6418D2047E9D600E33A94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD6418B2047E9D600E33A94 /* LaunchScreen.storyboard */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBVistorView.swift; sourceTree = "<group>"; };
 		3DD6417F2047E9D600E33A94 /* SFWBPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFWBPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD641822047E9D600E33A94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DD641892047E9D600E33A94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				3DD641BC2047F97500E33A94 /* SFWBNavigationViewController.swift */,
 				3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */,
 				3DD641BE2047F98D00E33A94 /* SFWBBaseViewController.swift */,
+				3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */,
 				3DD641EE204808CC00E33A94 /* UIImage+Extension.m in Sources */,
 				3DD641C32047FA1E00E33A94 /* SFWBMessageViewController.swift in Sources */,
+				3D92A8D2204E9EC300333D9D /* SFWBVistorView.swift in Sources */,
 				3DD641E7204808CC00E33A94 /* NSAttributedString+CZAdditon.m in Sources */,
 				3DD641E9204808CC00E33A94 /* NSString+CZBase64.m in Sources */,
 				3DD641C52047FA3A00E33A94 /* SFWBDiscoverViewController.swift in Sources */,

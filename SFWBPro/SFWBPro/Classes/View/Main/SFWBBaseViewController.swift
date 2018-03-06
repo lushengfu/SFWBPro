@@ -128,9 +128,9 @@ extension SFWBBaseViewController {
     
     // 设置访客视图
     fileprivate func setupVistorView() {
-        let vistorView = UIView(frame: view.bounds)
+        let vistorView = SFWBVistorView(frame: view.bounds)
         
-        vistorView.backgroundColor = UIColor.yw_random()
+//        vistorView.backgroundColor = UIColor.yw_random()
         
         view.insertSubview(vistorView, belowSubview: navigationBar)
     }
