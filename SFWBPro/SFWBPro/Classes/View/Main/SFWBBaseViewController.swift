@@ -15,6 +15,8 @@ import UIKit
 // 2. 不能重写父类的方法
 
 class SFWBBaseViewController: UIViewController {
+    // 登录标记 (false为未登录, true为已登录)
+    var userLogon = false
     
     var tableView : UITableView?
     // 添加刷新控件
@@ -81,13 +83,16 @@ class SFWBBaseViewController: UIViewController {
         
         setupNavigationBar()
         
-        setupTableView()
+        // 三目运算
+        userLogon ? setupTableView() : setupVistorView()
+        
     }
     
     
     /// 加载数据源方法
     @objc func loadData() {
-        
+        // 子类不实现该方法时, 默认为结束刷新
+        refreshControl?.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,6 +124,15 @@ extension SFWBBaseViewController {
         // 刷新控件添加事件
         refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
         
+    }
+    
+    // 设置访客视图
+    fileprivate func setupVistorView() {
+        let vistorView = UIView(frame: view.bounds)
+        
+        vistorView.backgroundColor = UIColor.yw_random()
+        
+        view.insertSubview(vistorView, belowSubview: navigationBar)
     }
     
     // 设置自定义导航栏

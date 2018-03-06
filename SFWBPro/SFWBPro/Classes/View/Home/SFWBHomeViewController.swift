@@ -54,7 +54,8 @@ class SFWBHomeViewController: SFWBBaseViewController {
             }
             
             self.tableView?.reloadData()
-            
+            // 结束刷新
+            self.refreshControl?.endRefreshing()
             // 上拉标记重置
             self.isPullUp = false
         }
