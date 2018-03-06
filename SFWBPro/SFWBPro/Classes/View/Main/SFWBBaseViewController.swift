@@ -24,10 +24,23 @@ class SFWBBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // UI设置
         setupUI()
         // 加载数据
         loadData()
+        
+        // 布局的调试
+        if #available(iOS 11, *) {
+            
+            additionalSafeAreaInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+
+            tableView?.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
+            
+        } else {
+            
+            automaticallyAdjustsScrollViewInsets = false;
+        }
     }
     
     // 标题设置
@@ -89,6 +102,9 @@ extension SFWBBaseViewController {
         
         tableView?.delegate = self
         tableView?.dataSource = self
+        
+        tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height, 0,
+                                                   tabBarController?.tabBar.bounds.height ?? 49, 0)
     }
     
     // 设置自定义导航栏

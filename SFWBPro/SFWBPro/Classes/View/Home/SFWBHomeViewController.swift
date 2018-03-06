@@ -39,7 +39,7 @@ class SFWBHomeViewController: SFWBBaseViewController {
     }
     
     override func loadData() {
-        for i in 0..<10 {
+        for i in 0..<15 {
             statusList.insert(i.description, at: 0)
         }
     }
@@ -58,6 +58,7 @@ extension SFWBHomeViewController {
         let sCell = tableView.dequeueReusableCell(withIdentifier: statusCell, for: indexPath)
         
         sCell.textLabel?.text = statusList[indexPath.row]
+        sCell.contentView.backgroundColor = UIColor.yw_random()
         
         return sCell
     }
