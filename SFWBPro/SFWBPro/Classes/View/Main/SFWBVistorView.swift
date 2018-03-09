@@ -10,6 +10,21 @@ import UIKit
 
 class SFWBVistorView: UIView {
 
+    // 注册按钮
+    lazy var registerButton : UIButton = UIButton.yw_textButton(
+        "注册",
+        fontSize: 16,
+        normalColor: UIColor.orange,
+        highlightedColor: UIColor.darkGray,
+        backgroundImageName: "common_button_white_disable")
+    // 登录按钮
+    lazy var loginButton : UIButton = UIButton.yw_textButton(
+        "登录",
+        fontSize: 16,
+        normalColor: UIColor.gray,
+        highlightedColor: UIColor.darkGray,
+        backgroundImageName: "common_button_white_disable")
+    
     // 访客视图属性, 根据字典的配置,来配置访客视图样式
     var vistorInfo : [String : String]? {
         didSet {
@@ -73,20 +88,6 @@ class SFWBVistorView: UIView {
         fontSize: 14,
         color: UIColor.darkGray)
     
-    // 注册按钮
-    fileprivate lazy var registerButton : UIButton = UIButton.yw_textButton(
-        "注册",
-        fontSize: 16,
-        normalColor: UIColor.orange,
-        highlightedColor: UIColor.darkGray,
-        backgroundImageName: "common_button_white_disable")
-    // 登录按钮
-    fileprivate lazy var loginButton : UIButton = UIButton.yw_textButton(
-        "登录",
-        fontSize: 16,
-        normalColor: UIColor.gray,
-        highlightedColor: UIColor.darkGray,
-        backgroundImageName: "common_button_white_disable")
 }
 
 extension SFWBVistorView {

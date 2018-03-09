@@ -30,8 +30,8 @@ class SFWBHomeViewController: SFWBBaseViewController {
     }
     
     // 重写UI设置
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+        super.setupTableView()
         
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
         
@@ -65,6 +65,7 @@ class SFWBHomeViewController: SFWBBaseViewController {
         super.didReceiveMemoryWarning()
     }
 }
+
 
 extension SFWBHomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

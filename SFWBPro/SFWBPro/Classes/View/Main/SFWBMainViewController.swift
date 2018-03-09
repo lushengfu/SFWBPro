@@ -67,9 +67,19 @@ extension SFWBMainViewController {
     // 设置子控制器
     fileprivate func setupChildController() {
         
-        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
-            let data = NSData(contentsOfFile: path),
-            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String : AnyObject]]
+        // 先检查本地沙盒是否有值
+        var documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        documentPath = (documentPath as NSString).appendingPathComponent("main.json")
+        
+        var data = NSData(contentsOfFile: documentPath)
+        
+        if data == nil {
+            let path = Bundle.main.path(forResource: "main.json", ofType: nil)
+            data = NSData(contentsOfFile: path!)
+            
+        }
+        
+        guard let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String : AnyObject]]
         else {
             return
         }
@@ -84,9 +94,7 @@ extension SFWBMainViewController {
 //            ["clsName" : "SFWBProfileViewController" as AnyObject, "title" : "我的" as AnyObject, "imageName" : "profile" as AnyObject,
 //             "vistorInfo" : ["imageName" : "visitordiscover_image_profile", "message" : "登录后,可以看到个人信息,关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"] as AnyObject]
 //        ]
-
 //        (array as NSArray).write(toFile: "/Users/happy/Desktop/demo.plist", atomically: true)
-        
 //        let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
 //
 //        (data as NSData).write(toFile: "/Users/happy/Desktop/demo.json", atomically: true)

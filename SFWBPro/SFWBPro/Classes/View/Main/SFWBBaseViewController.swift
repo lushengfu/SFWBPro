@@ -80,7 +80,7 @@ class SFWBBaseViewController: UIViewController {
         }
     }
     
-    func setupUI() {
+    fileprivate func setupUI() {
         view.backgroundColor = UIColor.yw_random()
         
         setupNavigationBar()
@@ -90,24 +90,8 @@ class SFWBBaseViewController: UIViewController {
         
     }
     
-    
-    /// 加载数据源方法
-    @objc func loadData() {
-        // 子类不实现该方法时, 默认为结束刷新
-        refreshControl?.endRefreshing()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-}
-
-// MARK: - 界面设置
-extension SFWBBaseViewController {
-    
     // 设置控制器的表格
-    fileprivate func setupTableView() {
+    func setupTableView() {
         
         tableView = UITableView(frame: view.bounds, style: .plain)
         
@@ -128,6 +112,35 @@ extension SFWBBaseViewController {
         
     }
     
+    /// 加载数据源方法
+    @objc func loadData() {
+        // 子类不实现该方法时, 默认为结束刷新
+        refreshControl?.endRefreshing()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+}
+
+
+// MARK: - 处理点击事件
+extension SFWBBaseViewController {
+    
+    @objc fileprivate func loginClick() {
+        print("点击登录按钮")
+    }
+    
+    @objc fileprivate func registerClick() {
+        print("点击注册按钮")
+    }
+    
+}
+
+// MARK: - 界面设置
+extension SFWBBaseViewController {
+    
     // 设置访客视图
     fileprivate func setupVistorView() {
         let vistorView = SFWBVistorView(frame: view.bounds)
@@ -137,6 +150,10 @@ extension SFWBBaseViewController {
         view.insertSubview(vistorView, belowSubview: navigationBar)
         
         vistorView.vistorInfo = vistorInfo
+        
+        //登录注册按钮添加target
+        vistorView.registerButton.addTarget(self, action: #selector(registerClick), for: .touchUpInside)
+        vistorView.loginButton.addTarget(self, action: #selector(loginClick), for: .touchUpInside)
     }
     
     // 设置自定义导航栏
@@ -152,6 +169,11 @@ extension SFWBBaseViewController {
         navigationBar.backgroundColor = UIColor.yw_color(withHex: 0xf6f6f6)
         // 设置标题字体颜色
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.darkGray]
+        // 设置左右两边按钮的字体颜色
+        navigationBar.tintColor = UIColor.orange
+        
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(registerClick))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(loginClick))
     }
 }
 
