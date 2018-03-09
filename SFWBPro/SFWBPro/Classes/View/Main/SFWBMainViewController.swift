@@ -67,16 +67,32 @@ extension SFWBMainViewController {
     // 设置子控制器
     fileprivate func setupChildController() {
         
-        let array = [
-            ["clsName" : "SFWBHomeViewController", "title" : "首页", "imageName" : "home"],
-            ["clsName" : "SFWBMessageViewController", "title" : "消息", "imageName" : "message_center"],
-            ["clsName" : "UIViewController"],
-            ["clsName" : "SFWBDiscoverViewController", "title" : "发现", "imageName" : "discover"],
-            ["clsName" : "SFWBProfileViewController", "title" : "我的", "imageName" : "profile"]
-        ]
+        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
+            let data = NSData(contentsOfFile: path),
+            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String : AnyObject]]
+        else {
+            return
+        }
+        
+//        let array : [[String : AnyObject]] = [
+//            ["clsName" : "SFWBHomeViewController" as AnyObject, "title" : "首页" as AnyObject, "imageName" : "home" as AnyObject,
+//             "vistorInfo" : ["imageName" : "", "message" : "关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"] as AnyObject],
+//            ["clsName" : "SFWBMessageViewController" as AnyObject, "title" : "消息" as AnyObject, "imageName" : "message_center" as AnyObject, "vistorInfo" : ["imageName" : "visitordiscover_image_message", "message" : "登录后,可以看到相应的信息,关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"] as AnyObject],
+//            ["clsName" : "UIViewController" as AnyObject],
+//            ["clsName" : "SFWBDiscoverViewController" as AnyObject, "title" : "发现" as AnyObject, "imageName" : "discover" as AnyObject,
+//             "vistorInfo" : ["imageName" : "visitordiscover_image_message", "message" : "关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"] as AnyObject],
+//            ["clsName" : "SFWBProfileViewController" as AnyObject, "title" : "我的" as AnyObject, "imageName" : "profile" as AnyObject,
+//             "vistorInfo" : ["imageName" : "visitordiscover_image_profile", "message" : "登录后,可以看到个人信息,关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"] as AnyObject]
+//        ]
+
+//        (array as NSArray).write(toFile: "/Users/happy/Desktop/demo.plist", atomically: true)
+        
+//        let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+//
+//        (data as NSData).write(toFile: "/Users/happy/Desktop/demo.json", atomically: true)
         
         var arrayM = [UIViewController]()
-        for dict in array {
+        for dict in array! {
             arrayM.append(controller(dict: dict))
         }
         
@@ -86,11 +102,12 @@ extension SFWBMainViewController {
     
     // 利用字典生成子控制器
     // clsName , title , imageName
-    fileprivate func controller(dict : [String : String]) -> UIViewController {
-        guard let clsName = dict["clsName"],
-               let title = dict["title"],
-            let imageName = dict["imageName"],
-            let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? UIViewController.Type
+    fileprivate func controller(dict : [String : AnyObject]) -> UIViewController {
+        guard let clsName = dict["clsName"] as? String,
+               let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
+        let vistorInfo = dict["vistorInfo"] as? [String : String],
+            let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? SFWBBaseViewController.Type
         else {
             return UIViewController()
         }
@@ -99,7 +116,7 @@ extension SFWBMainViewController {
         vc.title = title
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal)
-        
+        vc.vistorInfo = vistorInfo
         // 修改tabbar的字体颜色
         vc.tabBarItem.setTitleTextAttributes(
             [NSAttributedStringKey.foregroundColor : UIColor.orange],

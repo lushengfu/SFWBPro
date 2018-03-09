@@ -14,13 +14,16 @@ class SFSecondNavigationBar: UINavigationBar {
         super.layoutSubviews()
         
         if #available(iOS 11, *) {
+            // 获取状态栏的高度
+//            let statusbarHeight = UIApplication.shared.statusBarFrame.height
+
             for subview in self.subviews {
                 let stringFromClass = NSStringFromClass(subview.classForCoder)
                 print("--------- \(stringFromClass)")
                 if stringFromClass.contains("BarBackground") {
                     subview.frame = self.bounds
                 } else if stringFromClass.contains("UINavigationBarContentView") {
-                    subview.frame = CGRect(x: 0, y: 20, width: UIScreen.yw_screenWidth(), height: 44)
+                    subview.frame = CGRect(x: 0, y: statusbarHeight, width: UIScreen.yw_screenWidth(), height: navigationHeight)
                 }
             }
         }

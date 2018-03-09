@@ -38,6 +38,7 @@
 		3DD641FA2049236E00E33A94 /* SFWBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */; };
 		3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */; };
 		3DD641FE204953C400E33A94 /* SFSecondNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */; };
+		3DF4C9C320525902009DAF1E /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF4C9C220525902009DAF1E /* main.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBDemoViewController.swift; sourceTree = "<group>"; };
 		3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSecondNavigationBar.swift; sourceTree = "<group>"; };
+		3DF4C9C220525902009DAF1E /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 		3DD641B62047F80E00E33A94 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3DF4C9C220525902009DAF1E /* main.json */,
 				3DD641BA2047F93400E33A94 /* SFWBMainViewController.swift */,
 				3DD641BC2047F97500E33A94 /* SFWBNavigationViewController.swift */,
 				3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */,
@@ -441,6 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF4C9C320525902009DAF1E /* main.json in Resources */,
 				3DD6418D2047E9D600E33A94 /* LaunchScreen.storyboard in Resources */,
 				3DD6418A2047E9D600E33A94 /* Assets.xcassets in Resources */,
 			);

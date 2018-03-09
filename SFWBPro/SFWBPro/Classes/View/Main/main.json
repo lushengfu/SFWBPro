@@ -1,0 +1,41 @@
+[
+  {
+    "vistorInfo" : {
+      "imageName" : "",
+      "message" : "关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"
+    },
+    "clsName" : "SFWBHomeViewController",
+    "title" : "首页",
+    "imageName" : "home"
+  },
+  {
+    "vistorInfo" : {
+      "imageName" : "visitordiscover_image_message",
+      "message" : "登录后,可以看到相应的信息,关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"
+    },
+    "clsName" : "SFWBMessageViewController",
+    "title" : "消息",
+    "imageName" : "message_center"
+  },
+  {
+    "clsName" : "UIViewController"
+  },
+  {
+    "vistorInfo" : {
+      "imageName" : "visitordiscover_image_message",
+      "message" : "关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"
+    },
+    "clsName" : "SFWBDiscoverViewController",
+    "title" : "发现",
+    "imageName" : "discover"
+  },
+  {
+    "vistorInfo" : {
+      "imageName" : "visitordiscover_image_profile",
+      "message" : "登录后,可以看到个人信息,关注一下人,看看这里有什么新鲜事或者新鲜人的! 加油💪⛽️"
+    },
+    "clsName" : "SFWBProfileViewController",
+    "title" : "我的",
+    "imageName" : "profile"
+  }
+]

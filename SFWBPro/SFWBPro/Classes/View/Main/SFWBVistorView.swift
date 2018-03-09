@@ -10,6 +10,32 @@ import UIKit
 
 class SFWBVistorView: UIView {
 
+    // 访客视图属性, 根据字典的配置,来配置访客视图样式
+    var vistorInfo : [String : String]? {
+        didSet {
+            guard let imageName = vistorInfo?["imageName"],
+                let message = vistorInfo?["message"]
+                else {
+                return
+            }
+            
+            tipLabel.text = message
+            
+            if imageName == "" {
+//                maskIconView.isHidden = false
+                startAnimation()
+                return
+            }
+            
+            iconView.image = UIImage(named: imageName)
+            
+            houseIconView.isHidden = true
+            maskIconView.isHidden = true
+        }
+    }
+    
+    
+    // 初始化方法
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -20,9 +46,25 @@ class SFWBVistorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// 首页访客视图添加动画
+    fileprivate func startAnimation() {
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        
+        anim.toValue = Double(2) * Double.pi
+        anim.repeatCount = MAXFLOAT
+        anim.duration = 15.0
+        
+        // 禁止完成后移除动画
+        anim.isRemovedOnCompletion = false
+        
+        iconView.layer.add(anim, forKey: nil)
+    }
+    
     //MARK: 添加私有控件
     // 图像视图
     fileprivate lazy var iconView : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
+    // 遮罩层
+    fileprivate lazy var maskIconView : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
     // 小房子
     fileprivate lazy var houseIconView : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     // label文字说明
@@ -50,10 +92,11 @@ class SFWBVistorView: UIView {
 extension SFWBVistorView {
     
     fileprivate func setupUI() {
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.yw_color(withHex: 0xededed)
         
         // 添加子视图
         addSubview(iconView)
+        addSubview(maskIconView)
         addSubview(houseIconView)
         tipLabel.textAlignment = .center
         addSubview(tipLabel)
@@ -102,7 +145,6 @@ extension SFWBVistorView {
         
         
         let margin : CGFloat = 20.0
-        
         // tiplabel
         addConstraint(NSLayoutConstraint(item: tipLabel,
                                          attribute: .centerX,
@@ -172,6 +214,36 @@ extension SFWBVistorView {
                                          attribute: NSLayoutAttribute.notAnAttribute,
                                          multiplier: 0,
                                          constant: 100))
+        
+        // 遮罩层布局
+        addConstraint(NSLayoutConstraint(item: maskIconView,
+                                         attribute: .left,
+                                         relatedBy: NSLayoutRelation.equal,
+                                         toItem: self,
+                                         attribute: .left,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: maskIconView,
+                                         attribute: .right,
+                                         relatedBy: NSLayoutRelation.equal,
+                                         toItem: self,
+                                         attribute: .right,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: maskIconView,
+                                         attribute: .top,
+                                         relatedBy: NSLayoutRelation.equal,
+                                         toItem: self,
+                                         attribute: .top,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: maskIconView,
+                                         attribute: .bottom,
+                                         relatedBy: NSLayoutRelation.equal,
+                                         toItem: registerButton,
+                                         attribute: .bottom,
+                                         multiplier: 1.0,
+                                         constant: 0))
     }
     
 }

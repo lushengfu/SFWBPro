@@ -13,10 +13,16 @@ import UIKit
 // extension需要注意的地方:
 // 1. 不能定义属性
 // 2. 不能重写父类的方法
+// 获取状态栏的高度
+let statusbarHeight = UIApplication.shared.statusBarFrame.height
+// 默认导航栏的高度
+let navigationHeight : CGFloat = 44
 
 class SFWBBaseViewController: UIViewController {
     // 登录标记 (false为未登录, true为已登录)
     var userLogon = false
+    /// 访客视图基本信息
+    var vistorInfo : [String : String]?
     
     var tableView : UITableView?
     // 添加刷新控件
@@ -25,8 +31,7 @@ class SFWBBaseViewController: UIViewController {
     // 是否上拉
     var isPullUp = false
     
-    
-    lazy var navigationBar = SFSecondNavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64))
+    lazy var navigationBar = SFSecondNavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: navigationHeight))
     
     lazy var navItem = UINavigationItem()
     
@@ -63,11 +68,8 @@ class SFWBBaseViewController: UIViewController {
         
         if #available(iOS 11, *) {
             
-            // 获取状态栏的高度
-            let statusbarHeight = UIApplication.shared.statusBarFrame.height
-            
             print(statusbarHeight)
-            
+            print(navigationBar.bounds.height)
 //            navigationBar.yw_top = statusbarHeight
             
 //            UIApplication.shared.statusBarStyle = .lightContent
@@ -133,10 +135,14 @@ extension SFWBBaseViewController {
 //        vistorView.backgroundColor = UIColor.yw_random()
         
         view.insertSubview(vistorView, belowSubview: navigationBar)
+        
+        vistorView.vistorInfo = vistorInfo
     }
     
     // 设置自定义导航栏
     fileprivate func setupNavigationBar() {
+        
+        navigationBar.yw_height = statusbarHeight + navigationHeight;
         // 添加自定义导航栏
         view.addSubview(navigationBar)
         
