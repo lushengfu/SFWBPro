@@ -1,0 +1,25 @@
+
+platform :ios, '9.0'
+
+target 'SFWBPro' do
+
+  use_frameworks!
+
+  pod "AFNetworking"
+  pod "SDWebImage"
+  pod "YYModel"
+  pod "SVProgressHUD"
+  pod "FMDB"
+  pod "pop"
+
+  target 'SFWBProTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'SFWBProUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

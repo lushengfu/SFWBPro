@@ -1,0 +1,6 @@
+framework module Pods_SFWBProUITests {
+  umbrella header "Pods-SFWBProUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
