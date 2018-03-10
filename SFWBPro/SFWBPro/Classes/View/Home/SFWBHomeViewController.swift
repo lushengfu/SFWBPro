@@ -40,6 +40,12 @@ class SFWBHomeViewController: SFWBBaseViewController {
     
     override func loadData() {
         
+        // 加载数据
+        SFWBNetworkManager.share.statusList { (list, isSuccess) in
+            
+            print(list)
+            
+        }
         // 模拟数据延迟加载
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             

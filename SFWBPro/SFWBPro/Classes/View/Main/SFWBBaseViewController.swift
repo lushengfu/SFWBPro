@@ -20,7 +20,7 @@ let navigationHeight : CGFloat = 44
 
 class SFWBBaseViewController: UIViewController {
     // 登录标记 (false为未登录, true为已登录)
-    var userLogon = false
+    var userLogon = true
     /// 访客视图基本信息
     var vistorInfo : [String : String]?
     

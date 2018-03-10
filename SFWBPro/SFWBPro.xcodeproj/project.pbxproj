@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		353922940C36CDD10C48F568 /* Pods_SFWBPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C113BAB25EF95D4158284A /* Pods_SFWBPro.framework */; };
 		383F1AE9639692B7C84B9267 /* Pods_SFWBProTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32562A8FC6F4954400A25513 /* Pods_SFWBProTests.framework */; };
+		3D17AA0E205381F200774723 /* SFWBNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17AA0D205381F200774723 /* SFWBNetworkManager.swift */; };
+		3D17AA102053B66300774723 /* SFWBNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17AA0F2053B66300774723 /* SFWBNetworkManager+Extension.swift */; };
 		3D92A8D2204E9EC300333D9D /* SFWBVistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */; };
 		3DD641832047E9D600E33A94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641822047E9D600E33A94 /* AppDelegate.swift */; };
 		3DD6418A2047E9D600E33A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD641892047E9D600E33A94 /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		32562A8FC6F4954400A25513 /* Pods_SFWBProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SFWBProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D17AA0D205381F200774723 /* SFWBNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBNetworkManager.swift; sourceTree = "<group>"; };
+		3D17AA0F2053B66300774723 /* SFWBNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFWBNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBVistorView.swift; sourceTree = "<group>"; };
 		3DD6417F2047E9D600E33A94 /* SFWBPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFWBPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD641822047E9D600E33A94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +172,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3D17AA0C2053818E00774723 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3D17AA0D205381F200774723 /* SFWBNetworkManager.swift */,
+				3D17AA0F2053B66300774723 /* SFWBNetworkManager+Extension.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		3DD641762047E9D600E33A94 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +255,7 @@
 		3DD641B22047F80E00E33A94 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3D17AA0C2053818E00774723 /* Network */,
 				3DD641F52048EBB600E33A94 /* Extensions */,
 				3DD641C8204808CC00E33A94 /* AddItions */,
 			);
@@ -686,6 +700,7 @@
 				3DD641EE204808CC00E33A94 /* UIImage+Extension.m in Sources */,
 				3DD641C32047FA1E00E33A94 /* SFWBMessageViewController.swift in Sources */,
 				3D92A8D2204E9EC300333D9D /* SFWBVistorView.swift in Sources */,
+				3D17AA0E205381F200774723 /* SFWBNetworkManager.swift in Sources */,
 				3DD641E7204808CC00E33A94 /* NSAttributedString+CZAdditon.m in Sources */,
 				3DD641E9204808CC00E33A94 /* NSString+CZBase64.m in Sources */,
 				3DD641C52047FA3A00E33A94 /* SFWBDiscoverViewController.swift in Sources */,
@@ -703,6 +718,7 @@
 				3DD641BD2047F97500E33A94 /* SFWBNavigationViewController.swift in Sources */,
 				3DD641F0204808CC00E33A94 /* UIScreen+CZAddition.m in Sources */,
 				3DD641EB204808CC00E33A94 /* NSString+CZPath.m in Sources */,
+				3D17AA102053B66300774723 /* SFWBNetworkManager+Extension.swift in Sources */,
 				3DD641EA204808CC00E33A94 /* NSString+CZHash.m in Sources */,
 				3DD641FA2049236E00E33A94 /* SFWBDemoViewController.swift in Sources */,
 				3DD641BF2047F98D00E33A94 /* SFWBBaseViewController.swift in Sources */,
