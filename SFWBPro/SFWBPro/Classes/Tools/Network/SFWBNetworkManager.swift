@@ -21,7 +21,7 @@ class SFWBNetworkManager: AFHTTPSessionManager {
     var accessToken : String? = "2.00GkH66GurCwUCd6b082316bRxf5DE"
     
     /// 自动添加token的请求
-    func tokenRequest(method: SFWBHttpMethod = .Get, URLString: String, parameters: [String: AnyObject]?, completion:@escaping (_ json: AnyObject?,_ isSuccess: Bool) -> ()) {
+    func tokenRequest(method: SFWBHttpMethod = .Get, URLString: String, parameters: [String: Any]?, completion:@escaping (_ json: AnyObject?,_ isSuccess: Bool) -> ()) {
         
         guard let token = accessToken else {
             // 没有token, 需要登录
@@ -48,7 +48,7 @@ class SFWBNetworkManager: AFHTTPSessionManager {
     ///   - URLString: urlstring
     ///   - parameters: 自动参数
     ///   - completion: 返回请求结果的回调
-    func request(method: SFWBHttpMethod = .Get, URLString: String, parameters: [String: AnyObject]?, completion:@escaping (_ json: AnyObject?,_ isSuccess: Bool) -> ()) {
+    func request(method: SFWBHttpMethod = .Get, URLString: String, parameters: [String: Any]?, completion:@escaping (_ json: AnyObject?,_ isSuccess: Bool) -> ()) {
         
         let sfSuccess = {(task: URLSessionDataTask, json: Any?)->(Void) in
             completion(json as AnyObject, true)
