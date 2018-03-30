@@ -41,13 +41,16 @@ class SFWBHomeViewController: SFWBBaseViewController {
     override func loadData() {
         
         // 加载数据
-        listViewModel.loadStatus { (isSuccess) in
+        listViewModel.loadStatus(pullUp: self.isPullUp) { (isSuccess, shouldRefresh) in
             
-            self.tableView?.reloadData()
             // 结束刷新
             self.refreshControl?.endRefreshing()
             // 上拉标记重置
             self.isPullUp = false
+            
+            if shouldRefresh {
+                self.tableView?.reloadData()
+            }
             
         }
         // 模拟数据延迟加载

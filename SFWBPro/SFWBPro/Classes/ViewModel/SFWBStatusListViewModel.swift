@@ -8,19 +8,28 @@
 
 import Foundation
 
+/// 上拉刷新错误的最大次数
+private let maxPullupTryTimes = 3
+
 class SFWBStatusListViewModel {
     
     /// 微博数据源
     lazy var statusList = [SFWBStatus]()
-    
+    /// 记录上拉刷新的错误次数
+    private var pullupErrorTimes = 0
     /// 加载微博数据
     ///
     /// - Parameter complition: 完成回调
-    func loadStatus(complition: @escaping (_ isSuccess : Bool)->()) {
+    func loadStatus(pullUp: Bool, complition: @escaping (_ isSuccess : Bool, _ shouldRefresh : Bool)->()) {
         
-        let since_id : Int64 = statusList.first?.id ?? 0
+        if pullUp && pullupErrorTimes > maxPullupTryTimes {
+            complition(false, false)
+        }
         
-        SFWBNetworkManager.share.statusList(since_id: since_id, max_id: 0) { (list, isSuccess) in
+        let since_id : Int64 = pullUp ? 0 : (statusList.first?.id ?? 0)
+        let max_id : Int64 = !pullUp ? 0 : (statusList.last?.id ?? 0)
+        
+        SFWBNetworkManager.share.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
             
             print("\(String(describing: list))");
             
@@ -43,9 +52,22 @@ class SFWBStatusListViewModel {
 //                return
 //            }
             
-            self.statusList = array + self.statusList
+            if pullUp {
+                self.statusList += array // 上拉加载
+            }
+            else {
+                self.statusList = array + self.statusList // 下拉刷新
+            }
             
-            complition(isSuccess)
+            if pullUp && array.count == 0 {
+                
+                self.pullupErrorTimes += 1
+                complition(isSuccess, false)
+            } else {
+                complition(isSuccess, true)
+            }
+            
+            
         }
         
     }
