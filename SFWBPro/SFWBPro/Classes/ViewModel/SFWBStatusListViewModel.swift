@@ -23,7 +23,8 @@ class SFWBStatusListViewModel {
     func loadStatus(pullUp: Bool, complition: @escaping (_ isSuccess : Bool, _ shouldRefresh : Bool)->()) {
         
         if pullUp && pullupErrorTimes > maxPullupTryTimes {
-            complition(false, false)
+            complition(true, false)
+            return
         }
         
         let since_id : Int64 = pullUp ? 0 : (statusList.first?.id ?? 0)

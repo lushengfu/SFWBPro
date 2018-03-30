@@ -10,12 +10,23 @@ import UIKit
 
 class SFWBMainViewController: UITabBarController {
     
+    fileprivate var timer : Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 设置子控制器
         setupChildController()
         // 添加发布按钮
         addComposeButton()
+        // 添加定时器
+        setupTimer()
+        // 添加代理
+        delegate = self
+    }
+    
+    // 页面销毁时,移除定时器
+    deinit {
+        timer?.invalidate()
     }
     
     /**
@@ -46,6 +57,58 @@ class SFWBMainViewController: UITabBarController {
 
 }
 
+/// 添加定时器,实时更新微博的条数
+extension SFWBMainViewController {
+    
+    /// 初始化定时器
+    fileprivate func setupTimer() {
+//        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    /// 定时器循环的方法
+    @objc fileprivate func updateTimer() {
+        SFWBNetworkManager.share.unreadCount { (count) in
+            print("有\(count)条未读的微博")
+            let barItem =  self.tabBar.items![0]
+            barItem.badgeValue = count > 0 ? "\(count)" : nil
+            
+            UIApplication.shared.applicationIconBadgeNumber = Int(count)
+        }
+    }
+}
+
+// MARK: - UITabBarControllerDelegate代理方法
+extension SFWBMainViewController : UITabBarControllerDelegate {
+    
+    /// 将要跳转选中的控制器
+    ///
+    /// - Parameters:
+    ///   - tabBarController:
+    ///   - viewController: 目标控制器
+    /// - Returns:
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        let index = (childViewControllers as NSArray).index(of: viewController)
+        
+        if selectedIndex == 0 && selectedIndex == index {
+            
+            let nav = childViewControllers[0] as! SFWBNavigationViewController
+            let vc = nav.childViewControllers[0] as! SFWBHomeViewController
+            
+            let height = statusbarHeight + navigationHeight
+            
+            vc.tableView?.setContentOffset(CGPoint.init(x: 0, y: -height), animated: true)
+            // 延迟刷新数据
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                vc.loadData()
+            })
+        }
+        
+        return !viewController.isMember(of: UIViewController.self)
+    }
+    
+}
+
 /// 相当于OC的分类, 同样不能定义属性,只能定义方法
 extension SFWBMainViewController {
     
@@ -55,7 +118,7 @@ extension SFWBMainViewController {
         
         let count = childViewControllers.count
         
-        let width = view.bounds.width / CGFloat(count) - 1 // 这里减1,是要完全覆盖tabbarItem的扩容区(容错区)
+        let width = view.bounds.width / CGFloat(count) // 这里减1,是要完全覆盖tabbarItem的扩容区(容错区)
         
         // CGRectInset 正数是向内缩进,负数是向外扩展
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)

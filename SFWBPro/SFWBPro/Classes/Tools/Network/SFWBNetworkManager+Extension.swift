@@ -20,7 +20,7 @@ extension SFWBNetworkManager {
     func statusList(since_id: Int64 = 0, max_id: Int64 = 0, complition: @escaping (_ list: [[String: Any]]?, _ isSuccess: Bool) -> ()) {
         
         let homeUrl = "https://api.weibo.com/2/statuses/home_timeline.json"
-        
+        // @"https://api.weibo.com/2/remind/unread_count.json"
         let params = ["since_id" : "\(since_id)",
             "max_id" : "\(max_id > 0 ? (max_id - 1) : 0)"]
         
@@ -38,4 +38,28 @@ extension SFWBNetworkManager {
         
     }
     
+    /// 获取微博的未读数
+    func unreadCount(compltion: @escaping (_ count : Int64)->()) {
+        
+        let unreadUrl = "https://api.weibo.com/2/remind/unread_count.json"
+        
+        guard let uid = uid else {
+            return
+        }
+        
+        let parame = ["uid" : uid]
+        
+        tokenRequest(URLString: unreadUrl, parameters: parame) { (json, isSuccess) in
+            
+            guard let dict = json as? [String : Any] else {
+                return
+            }
+            print(dict["status"] as? Int64 ?? 0)
+            let count = dict["status"] as? Int64 ?? 0
+            compltion(count)
+            
+        }
+        
+        
+    }
 }
