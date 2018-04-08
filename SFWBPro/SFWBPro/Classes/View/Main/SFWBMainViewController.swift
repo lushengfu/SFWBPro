@@ -22,11 +22,15 @@ class SFWBMainViewController: UITabBarController {
         setupTimer()
         // 添加代理
         delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(userLogin), name:NSNotification.Name(rawValue: SFWBUserLoginNotification), object: nil)
     }
     
     // 页面销毁时,移除定时器
     deinit {
         timer?.invalidate()
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     /**
@@ -39,6 +43,15 @@ class SFWBMainViewController: UITabBarController {
      */
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    @objc fileprivate func userLogin(n : Notification) {
+        
+        print("进入登录页面 \(n)")
+        
+        let nav = UINavigationController(rootViewController: SFWBOAuthViewController())
+        present(nav, animated: true, completion: nil)
+        
     }
     
     // MARK: 发布微博点击事件

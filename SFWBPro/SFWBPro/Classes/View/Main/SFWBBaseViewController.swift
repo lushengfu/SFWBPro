@@ -20,7 +20,7 @@ let navigationHeight : CGFloat = 44
 
 class SFWBBaseViewController: UIViewController {
     // 登录标记 (false为未登录, true为已登录)
-    var userLogon = true
+    
     /// 访客视图基本信息
     var vistorInfo : [String : String]?
     
@@ -86,7 +86,7 @@ class SFWBBaseViewController: UIViewController {
         setupNavigationBar()
         
         // 三目运算
-        userLogon ? setupTableView() : setupVistorView()
+        SFWBNetworkManager.share.userLogon ? setupTableView() : setupVistorView()
         
     }
     
@@ -130,6 +130,8 @@ extension SFWBBaseViewController {
     
     @objc fileprivate func loginClick() {
         print("点击登录按钮")
+        // 点击登录,发送通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: SFWBUserLoginNotification), object: nil)
     }
     
     @objc fileprivate func registerClick() {

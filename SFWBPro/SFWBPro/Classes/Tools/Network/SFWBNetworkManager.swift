@@ -18,9 +18,13 @@ class SFWBNetworkManager: AFHTTPSessionManager {
 
     static let share = SFWBNetworkManager()
     // 请求数据token
-    var accessToken : String? = "2.00GkH66GurCwUCd6b082316bRxf5DE"
+    var accessToken : String? //= "2.00GkH66GurCwUCd6b082316bRxf5DE"
     
     var uid : String? = "5872193358"
+    
+    var userLogon : Bool {
+        return accessToken != nil
+    }
     
     /// 自动添加token的请求
     func tokenRequest(method: SFWBHttpMethod = .Get, URLString: String, parameters: [String: Any]?, completion:@escaping (_ json: AnyObject?,_ isSuccess: Bool) -> ()) {

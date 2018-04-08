@@ -44,6 +44,8 @@
 		3DD641FA2049236E00E33A94 /* SFWBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */; };
 		3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */; };
 		3DD641FE204953C400E33A94 /* SFSecondNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */; };
+		3DEB203F2079F53A00A0D03F /* SFWBCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEB203E2079F53A00A0D03F /* SFWBCommon.swift */; };
+		3DEB2042207A19A100A0D03F /* SFWBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEB2041207A19A100A0D03F /* SFWBOAuthViewController.swift */; };
 		3DF4C9C320525902009DAF1E /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF4C9C220525902009DAF1E /* main.json */; };
 		CE082834EBA27E00E7722423 /* Pods_SFWBProUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72462159BB278D0D3F16C15F /* Pods_SFWBProUITests.framework */; };
 /* End PBXBuildFile section */
@@ -124,6 +126,8 @@
 		3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBDemoViewController.swift; sourceTree = "<group>"; };
 		3DD641FB20493BBA00E33A94 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		3DD641FD204953C400E33A94 /* SFSecondNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSecondNavigationBar.swift; sourceTree = "<group>"; };
+		3DEB203E2079F53A00A0D03F /* SFWBCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBCommon.swift; sourceTree = "<group>"; };
+		3DEB2041207A19A100A0D03F /* SFWBOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBOAuthViewController.swift; sourceTree = "<group>"; };
 		3DF4C9C220525902009DAF1E /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		4D57727D4BF46B15C6159178 /* Pods-SFWBProUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFWBProUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SFWBProUITests/Pods-SFWBProUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5A3BB8C12C7BEA449723ADAB /* Pods-SFWBProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFWBProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SFWBProTests/Pods-SFWBProTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				3D17AA0C2053818E00774723 /* Network */,
 				3DD641F52048EBB600E33A94 /* Extensions */,
 				3DD641C8204808CC00E33A94 /* AddItions */,
+				3DEB203E2079F53A00A0D03F /* SFWBCommon.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				3DD641F82049234A00E33A94 /* Test */,
+				3DEB2040207A000700A0D03F /* OAuth */,
 				3DD641B62047F80E00E33A94 /* Main */,
 				3DD641B52047F80E00E33A94 /* Home */,
 				3DD641B72047F80E00E33A94 /* Message */,
@@ -384,6 +390,14 @@
 				3DD641F92049236E00E33A94 /* SFWBDemoViewController.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		3DEB2040207A000700A0D03F /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				3DEB2041207A19A100A0D03F /* SFWBOAuthViewController.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		B9F62F3B1A2D9B2300965162 /* Frameworks */ = {
@@ -706,6 +720,7 @@
 				3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */,
 				3DD641EE204808CC00E33A94 /* UIImage+Extension.m in Sources */,
 				3DD641C32047FA1E00E33A94 /* SFWBMessageViewController.swift in Sources */,
+				3DEB203F2079F53A00A0D03F /* SFWBCommon.swift in Sources */,
 				3D92A8D2204E9EC300333D9D /* SFWBVistorView.swift in Sources */,
 				3D17AA0E205381F200774723 /* SFWBNetworkManager.swift in Sources */,
 				3DD641E7204808CC00E33A94 /* NSAttributedString+CZAdditon.m in Sources */,
@@ -730,6 +745,7 @@
 				3DD641EA204808CC00E33A94 /* NSString+CZHash.m in Sources */,
 				3DD641FA2049236E00E33A94 /* SFWBDemoViewController.swift in Sources */,
 				3DD641BF2047F98D00E33A94 /* SFWBBaseViewController.swift in Sources */,
+				3DEB2042207A19A100A0D03F /* SFWBOAuthViewController.swift in Sources */,
 				3DD641F1204808CC00E33A94 /* UIView+CZAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
