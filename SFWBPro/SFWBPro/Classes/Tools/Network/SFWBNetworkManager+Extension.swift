@@ -43,7 +43,7 @@ extension SFWBNetworkManager {
         
         let unreadUrl = "https://api.weibo.com/2/remind/unread_count.json"
         
-        guard let uid = uid else {
+        guard let uid = userAccount.uid  else {
             return
         }
         
@@ -59,7 +59,35 @@ extension SFWBNetworkManager {
             compltion(count)
             
         }
-        
-        
     }
 }
+
+
+// MARK: - OAuth授权的网络请求
+extension SFWBNetworkManager {
+
+    func loadAccesstoken(code : String) {
+        
+        let urlStr = "https://api.weibo.com/oauth2/access_token"
+        let parameters = ["client_id" : SFWBAppKey,
+                          "client_secret" : SFWBAppSecret,
+                          "grant_type" : "authorization_code",
+                          "code" : code,
+                          "redirect_uri" : SFWBRedirectURL
+                          ]
+        
+        request(method: .Post, URLString: urlStr, parameters: parameters) { (json, isSuccess) in
+//            print(json)
+            
+//            self.userAccount.yy_modelSet(with: json as? [String : AnyObject] ?? [:])
+            self.userAccount.yy_modelSet(withJSON: (json as? [String : AnyObject]) ?? [:])
+            // 保存用户信息
+            self.userAccount.saveUseraccount()
+            print(self.userAccount)
+        }
+        
+    }
+    
+}
+
+

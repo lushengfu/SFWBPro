@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SVProgressHUD
 
 class SFWBOAuthViewController: UIViewController {
     
@@ -20,6 +21,8 @@ class SFWBOAuthViewController: UIViewController {
         
         webView.navigationDelegate = self
         
+        webView.scrollView.isScrollEnabled = false
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", target: self, selector: #selector(close), isBack: true)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", target: self, selector: #selector(autoFill))
@@ -30,7 +33,7 @@ class SFWBOAuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let urlStr = "https://api.weibo.com/oauth2/authorize?client_id=\(SFWBAppKey)&redirect_uri=\(SFWBRedirectURL)"
         
         guard let url = URL(string: urlStr) else {
@@ -41,10 +44,13 @@ class SFWBOAuthViewController: UIViewController {
         
         webView.load(request)
         
+        
     }
     
     // MARK: event responce
     @objc fileprivate func close() {
+        SVProgressHUD.dismiss()
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -67,15 +73,43 @@ class SFWBOAuthViewController: UIViewController {
 extension SFWBOAuthViewController : WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        print("请求001 --- ")
+        let urlStr = navigationAction.request.url?.absoluteString
+        print("请求001 --- \(String(describing: urlStr))")
         decisionHandler(.allow)
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         
-        print("请求路径为----- \(String(describing: navigationResponse.response.url?.absoluteString))")
+//        print("请求路径为----- \(String(describing: navigationResponse.response.url?.absoluteString))")
         
-        decisionHandler(.allow)
+        if navigationResponse.response.url?.absoluteString.hasPrefix(SFWBRedirectURL) == false {
+            decisionHandler(.allow)
+            return
+        }
+        
+        if navigationResponse.response.url?.query?.hasPrefix("code=") == false {
+            decisionHandler(.cancel)
+            close()
+            return
+        }
+        
+        // swift4.0 去子串
+        let codeStr = navigationResponse.response.url?.query ?? ""
+        let urlIndex = codeStr.index(after: "code".endIndex)
+        let code = codeStr[urlIndex...]
+        
+        print("授权码是--- \(String(describing: code))")
+        SFWBNetworkManager.share.loadAccesstoken(code: String(code))
+//        print("请求路径---- \(String(describing: navigationResponse.response.url?.query))")
+        decisionHandler(.cancel)
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        SVProgressHUD.show()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        SVProgressHUD.dismiss()
     }
     
 }

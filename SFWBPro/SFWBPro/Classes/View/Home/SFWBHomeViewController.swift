@@ -35,6 +35,8 @@ class SFWBHomeViewController: SFWBBaseViewController {
         
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
         
+        navItem.rightBarButtonItem = nil
+        
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: statusCell)
     }
     

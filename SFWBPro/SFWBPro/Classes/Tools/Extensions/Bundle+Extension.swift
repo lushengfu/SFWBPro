@@ -11,7 +11,7 @@ import Foundation
 extension Bundle{
 
     /// 计算性属性类似函数，没有参数，但是有返回值
-    var nameSpace : String{
+    var nameSpace : String {
      return infoDictionary?["CFBundleName"] as? String ?? ""
     }
 }
