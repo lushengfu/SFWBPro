@@ -66,7 +66,7 @@ extension SFWBNetworkManager {
 // MARK: - OAuth授权的网络请求
 extension SFWBNetworkManager {
 
-    func loadAccesstoken(code : String) {
+    func loadAccesstoken(code : String, completion:@escaping (_ isSuccess: Bool)->()) {
         
         let urlStr = "https://api.weibo.com/oauth2/access_token"
         let parameters = ["client_id" : SFWBAppKey,
@@ -83,6 +83,8 @@ extension SFWBNetworkManager {
             self.userAccount.yy_modelSet(withJSON: (json as? [String : AnyObject]) ?? [:])
             // 保存用户信息
             self.userAccount.saveUseraccount()
+            
+            completion(isSuccess)
             print(self.userAccount)
         }
         

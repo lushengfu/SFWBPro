@@ -54,6 +54,16 @@ class SFWBBaseViewController: UIViewController {
             
             automaticallyAdjustsScrollViewInsets = false;
         }
+        // 通知监听登录成功
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(loginSuccess),
+            name: NSNotification.Name(rawValue: SFWBUserLoginSuccessNotification),
+            object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // 标题设置
@@ -125,8 +135,15 @@ class SFWBBaseViewController: UIViewController {
 }
 
 
-// MARK: - 处理点击事件
+// MARK: - 处理点击和通知事件
 extension SFWBBaseViewController {
+    
+    @objc fileprivate func loginSuccess() {
+        
+        view = nil
+        
+        NotificationCenter.default.removeObserver(self)
+    }
     
     @objc fileprivate func loginClick() {
         print("点击登录按钮")

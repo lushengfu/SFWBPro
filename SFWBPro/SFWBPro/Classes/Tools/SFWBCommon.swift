@@ -18,3 +18,7 @@ let SFWBRedirectURL = "http://baidu.com"
 /// 用户登录的通知
 let SFWBUserLoginNotification = "SFWBUserLoginNotification"
 
+/// 用户登录成功的通知
+let SFWBUserLoginSuccessNotification = "SFWBUserLoginSuccessNotification"
+
+

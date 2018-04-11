@@ -99,7 +99,21 @@ extension SFWBOAuthViewController : WKNavigationDelegate {
         let code = codeStr[urlIndex...]
         
         print("授权码是--- \(String(describing: code))")
-        SFWBNetworkManager.share.loadAccesstoken(code: String(code))
+        SFWBNetworkManager.share.loadAccesstoken(code: String(code)) { (isSuccess) in
+            
+            if isSuccess {
+                SVProgressHUD.showInfo(withStatus: "登录成功")
+                
+                // 跳转页面
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: SFWBUserLoginSuccessNotification), object: nil)
+                // 退出当前页面
+                self.close()
+                
+            } else {
+                SVProgressHUD.showInfo(withStatus: "网络异常,请重新登录")
+            }
+            
+        }
 //        print("请求路径---- \(String(describing: navigationResponse.response.url?.query))")
         decisionHandler(.cancel)
     }
