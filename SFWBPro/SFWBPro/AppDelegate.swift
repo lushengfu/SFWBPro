@@ -8,24 +8,18 @@
 
 import UIKit
 import UserNotifications
+import SVProgressHUD
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // 注册显示icon的badge
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
-                print("注册" + (success ? "成功" : "失败"))
-            }
-        } else {
-            let notifySetting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(notifySetting)
-        }
+        // APP的额外设置
+        setupAddtional()
         
         window = UIWindow()
         window?.backgroundColor = UIColor.white
@@ -56,6 +50,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         
     }
+}
+
+//MAKR: APP的额外设置
+extension AppDelegate {
+    
+    fileprivate func setupAddtional() {
+        
+        SVProgressHUD.setMinimumDismissTimeInterval(1.0)
+        
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+        
+        // 注册显示icon的badge
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
+                print("注册" + (success ? "成功" : "失败"))
+            }
+        } else {
+            let notifySetting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(notifySetting)
+        }
+        
+    }
+    
 }
 
 extension AppDelegate {

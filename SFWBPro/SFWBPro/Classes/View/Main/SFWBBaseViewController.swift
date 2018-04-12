@@ -113,6 +113,8 @@ class SFWBBaseViewController: UIViewController {
         tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height, 0,
                                                    tabBarController?.tabBar.bounds.height ?? 49, 0)
         
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
+        
         // 初始化刷新控件
         refreshControl = UIRefreshControl()
         // 添加刷新控件到表格视图

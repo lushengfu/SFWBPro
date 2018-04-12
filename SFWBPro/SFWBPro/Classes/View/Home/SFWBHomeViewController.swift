@@ -9,6 +9,8 @@
 import UIKit
 
 private let statusCell = "statusCell"
+/// 标题的图片和文本的间距
+private let homeTitlePadding: CGFloat = 12.0
 
 class SFWBHomeViewController: SFWBBaseViewController {
 
@@ -34,10 +36,36 @@ class SFWBHomeViewController: SFWBBaseViewController {
         super.setupTableView()
         
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
-        
         navItem.rightBarButtonItem = nil
-        
+ 
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: statusCell)
+        // 设置标题view
+        setupTitleView()
+    }
+    
+    fileprivate func setupTitleView() {
+        
+        var titleName = SFWBNetworkManager.share.userAccount.screen_name;
+        if titleName == nil {
+            titleName = "首页"
+        }
+        
+        let titleBtn = UIButton.yw_textButton(titleName, fontSize: 17.0, normalColor: UIColor.darkGray, highlightedColor: UIColor.black)
+        titleBtn?.setImage(UIImage.init(named: "navigationbar_arrow_down"), for: .normal)
+        titleBtn?.setImage(UIImage.init(named: "navigationbar_arrow_up"), for: .selected)
+        
+        navItem.titleView = titleBtn
+        
+        titleBtn?.addTarget(self, action: #selector(titleClickBtn), for: .touchUpInside)
+        
+        titleBtn?.titleEdgeInsets = UIEdgeInsetsMake(0, -(((titleBtn?.imageView?.yw_width)! + homeTitlePadding)), 0, ((titleBtn?.imageView?.yw_width)! + homeTitlePadding))
+        titleBtn?.imageEdgeInsets = UIEdgeInsetsMake(0, ((titleBtn?.titleLabel?.yw_width)! + homeTitlePadding), 0, -((titleBtn?.titleLabel?.yw_width)! + homeTitlePadding))
+    }
+    
+    @objc fileprivate func titleClickBtn(btn: UIButton) {
+        
+        btn.isSelected = !btn.isSelected
+        
     }
     
     override func loadData() {
@@ -63,7 +91,6 @@ class SFWBHomeViewController: SFWBBaseViewController {
         super.didReceiveMemoryWarning()
     }
 }
-
 
 extension SFWBHomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

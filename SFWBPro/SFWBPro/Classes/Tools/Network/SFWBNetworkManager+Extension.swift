@@ -62,6 +62,29 @@ extension SFWBNetworkManager {
     }
 }
 
+// MARK: - 获取用户信息
+extension SFWBNetworkManager {
+    
+    func loadUserInfo(compltion: @escaping (_ dict: [String : Any])->()) {
+        
+        let urlStr = "https://api.weibo.com/2/users/show.json"
+        
+        guard let uid = userAccount.uid  else {
+            return
+        }
+        
+        let parameters = ["uid" : uid]
+        
+        tokenRequest(URLString: urlStr, parameters: parameters) { (json, isSuccess) in
+            
+            print(json as? [String : Any] ?? [:])
+            
+            compltion(json as? [String : Any] ?? [:])
+        }
+        
+    }
+}
+
 
 // MARK: - OAuth授权的网络请求
 extension SFWBNetworkManager {
@@ -81,10 +104,17 @@ extension SFWBNetworkManager {
             
 //            self.userAccount.yy_modelSet(with: json as? [String : AnyObject] ?? [:])
             self.userAccount.yy_modelSet(withJSON: (json as? [String : AnyObject]) ?? [:])
-            // 保存用户信息
-            self.userAccount.saveUseraccount()
+            print(self.userAccount)
+            // 获取用户信息
+            self.loadUserInfo(compltion: { (dict) in
+                
+                self.userAccount.yy_modelSet(with: dict)
+                print(self.userAccount)
+                // 保存用户信息
+                self.userAccount.saveUseraccount()
+                completion(isSuccess)
+            })
             
-            completion(isSuccess)
             print(self.userAccount)
         }
         

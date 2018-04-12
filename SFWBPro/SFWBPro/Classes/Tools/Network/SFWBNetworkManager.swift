@@ -28,8 +28,13 @@ class SFWBNetworkManager: AFHTTPSessionManager {
     func tokenRequest(method: SFWBHttpMethod = .Get, URLString: String, parameters: [String: Any]?, completion:@escaping (_ json: AnyObject?,_ isSuccess: Bool) -> ()) {
         
         guard let token = userAccount.access_token else {
-            // 没有token, 需要登录
+            //FIXME: 没有token, 需要登录
             completion(nil, false)
+            // 发送登录通知
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: SFWBUserLoginNotification),
+                object: "lose token")
+            
             return
         }
         
@@ -63,6 +68,11 @@ class SFWBNetworkManager: AFHTTPSessionManager {
             // 可选可以参与比较
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                 //FIXME: 发送通知,token已过期
+                
+                // 发送登录通知
+                NotificationCenter.default.post(
+                    name: NSNotification.Name(rawValue: SFWBUserLoginNotification),
+                    object: nil)
             }
             print("网络请求失败: \(error)")
             

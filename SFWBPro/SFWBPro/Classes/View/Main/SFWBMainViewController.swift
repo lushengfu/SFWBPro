@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class SFWBMainViewController: UITabBarController {
     
@@ -23,7 +24,11 @@ class SFWBMainViewController: UITabBarController {
         // 添加代理
         delegate = self
         
-        NotificationCenter.default.addObserver(self, selector:#selector(userLogin), name:NSNotification.Name(rawValue: SFWBUserLoginNotification), object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(userLogin),
+            name:NSNotification.Name(rawValue: SFWBUserLoginNotification),
+            object: nil)
     }
     
     // 页面销毁时,移除定时器
@@ -49,8 +54,22 @@ class SFWBMainViewController: UITabBarController {
         
         print("进入登录页面 \(n)")
         
-        let nav = UINavigationController(rootViewController: SFWBOAuthViewController())
-        present(nav, animated: true, completion: nil)
+        var when = DispatchTime.now()
+        
+        if n.object != nil {
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            SVProgressHUD.showInfo(withStatus: "用户登录信息过期,请重新登录!!!")
+            
+            when = DispatchTime.now() + 2
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            SVProgressHUD.setDefaultMaskType(.clear)
+            let nav = UINavigationController(rootViewController: SFWBOAuthViewController())
+            self.present(nav, animated: true, completion: nil)
+        }
+        
+       
         
     }
     

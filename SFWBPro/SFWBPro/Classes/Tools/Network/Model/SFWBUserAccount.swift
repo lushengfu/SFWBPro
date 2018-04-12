@@ -26,6 +26,10 @@ class SFWBUserAccount: NSObject {
     @objc var expiresDate: Date?
     
     @objc var isRealName: Bool = false
+    /// 用户图像
+    @objc var avatar_large: String?
+    /// 用户名
+    @objc var screen_name: String?
     
     override var description: String {
         return yy_modelDescription()
