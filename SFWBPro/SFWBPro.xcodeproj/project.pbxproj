@@ -15,6 +15,10 @@
 		3D4EE35820592A6D00EA4871 /* SFWBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE35720592A6D00EA4871 /* SFWBStatus.swift */; };
 		3D4EE35A2059334500EA4871 /* SFWBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */; };
 		3D92A8D2204E9EC300333D9D /* SFWBVistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */; };
+		3DBD992020804B0700842BA8 /* SFWBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD991F20804B0700842BA8 /* SFWBWelcomeView.swift */; };
+		3DBD992220804B3600842BA8 /* SFWBNewfeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD992120804B3600842BA8 /* SFWBNewfeatureView.swift */; };
+		3DBD9924208062B100842BA8 /* SFWBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBD9923208062B100842BA8 /* SFWBWelcomeView.xib */; };
+		3DBD99262080939300842BA8 /* SFWBNewfeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBD99252080939200842BA8 /* SFWBNewfeatureView.xib */; };
 		3DD641832047E9D600E33A94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD641822047E9D600E33A94 /* AppDelegate.swift */; };
 		3DD6418A2047E9D600E33A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD641892047E9D600E33A94 /* Assets.xcassets */; };
 		3DD6418D2047E9D600E33A94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD6418B2047E9D600E33A94 /* LaunchScreen.storyboard */; };
@@ -76,6 +80,10 @@
 		3D4EE35720592A6D00EA4871 /* SFWBStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatus.swift; sourceTree = "<group>"; };
 		3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusListViewModel.swift; sourceTree = "<group>"; };
 		3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBVistorView.swift; sourceTree = "<group>"; };
+		3DBD991F20804B0700842BA8 /* SFWBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBWelcomeView.swift; sourceTree = "<group>"; };
+		3DBD992120804B3600842BA8 /* SFWBNewfeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBNewfeatureView.swift; sourceTree = "<group>"; };
+		3DBD9923208062B100842BA8 /* SFWBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SFWBWelcomeView.xib; sourceTree = "<group>"; };
+		3DBD99252080939200842BA8 /* SFWBNewfeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SFWBNewfeatureView.xib; sourceTree = "<group>"; };
 		3DD6417F2047E9D600E33A94 /* SFWBPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFWBPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD641822047E9D600E33A94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DD641892047E9D600E33A94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,6 +208,18 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		3DBD991E20804AD100842BA8 /* Newfeature */ = {
+			isa = PBXGroup;
+			children = (
+				3DBD991F20804B0700842BA8 /* SFWBWelcomeView.swift */,
+				3DBD9923208062B100842BA8 /* SFWBWelcomeView.xib */,
+				3DBD992120804B3600842BA8 /* SFWBNewfeatureView.swift */,
+				3DBD99252080939200842BA8 /* SFWBNewfeatureView.xib */,
+			);
+			name = Newfeature;
+			path = SFWBPro/Classes/View/Newfeature;
+			sourceTree = SOURCE_ROOT;
+		};
 		3DD641762047E9D600E33A94 = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				3DD641F82049234A00E33A94 /* Test */,
+				3DBD991E20804AD100842BA8 /* Newfeature */,
 				3DEB2040207A000700A0D03F /* OAuth */,
 				3DD641B62047F80E00E33A94 /* Main */,
 				3DD641B52047F80E00E33A94 /* Home */,
@@ -539,6 +560,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF4C9C320525902009DAF1E /* main.json in Resources */,
+				3DBD9924208062B100842BA8 /* SFWBWelcomeView.xib in Resources */,
+				3DBD99262080939300842BA8 /* SFWBNewfeatureView.xib in Resources */,
 				3DD6418D2047E9D600E33A94 /* LaunchScreen.storyboard in Resources */,
 				3DD6418A2047E9D600E33A94 /* Assets.xcassets in Resources */,
 			);
@@ -725,11 +748,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DBD992020804B0700842BA8 /* SFWBWelcomeView.swift in Sources */,
 				3DD641ED204808CC00E33A94 /* UIColor+CZAddition.m in Sources */,
 				3D4EE35820592A6D00EA4871 /* SFWBStatus.swift in Sources */,
 				3DD641E6204808CC00E33A94 /* NSArray+Log.m in Sources */,
 				3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */,
 				3D0B268D207C934A00232B55 /* SFWBUserAccount.swift in Sources */,
+				3DBD992220804B3600842BA8 /* SFWBNewfeatureView.swift in Sources */,
 				3DD641EE204808CC00E33A94 /* UIImage+Extension.m in Sources */,
 				3DD641C32047FA1E00E33A94 /* SFWBMessageViewController.swift in Sources */,
 				3DEB203F2079F53A00A0D03F /* SFWBCommon.swift in Sources */,

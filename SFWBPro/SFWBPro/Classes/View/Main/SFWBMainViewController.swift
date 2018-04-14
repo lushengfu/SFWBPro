@@ -9,6 +9,9 @@
 import UIKit
 import SVProgressHUD
 
+let CFBundleShortVersionString = "CFBundleShortVersionString"
+
+
 class SFWBMainViewController: UITabBarController {
     
     fileprivate var timer : Timer?
@@ -19,6 +22,8 @@ class SFWBMainViewController: UITabBarController {
         setupChildController()
         // 添加发布按钮
         addComposeButton()
+        // 添加新特性视图
+        setupNewFeature()
         // 添加定时器
         setupTimer()
         // 添加代理
@@ -86,7 +91,38 @@ class SFWBMainViewController: UITabBarController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
 
+// MARK: - 添加新特性页面
+extension SFWBMainViewController {
+    
+    fileprivate func setupNewFeature() {
+        
+        if !SFWBNetworkManager.share.userLogon {
+            return
+        }
+        
+        let v = isNewVersion ? SFWBNewfeatureView.newfeatureView() : SFWBWelcomeView.welcomeView()
+        v.frame = view.bounds
+        view.addSubview(v)
+    }
+    
+    // 判断是否是最新版本
+    fileprivate var isNewVersion: Bool {
+        
+        // 获取当前版本号
+        let currentVersion = Bundle.main.infoDictionary?[CFBundleShortVersionString] as? String ?? ""
+        
+        let versionPath: String = ("version" as NSString).yw_appendDocumentDir()
+        // 获取沙盒的版本号
+        let sandboxVersion = (try? String(contentsOfFile: versionPath)) ?? ""
+        // 保存当前版本号
+        try? currentVersion.write(toFile: versionPath, atomically: true, encoding: .utf8)
+        
+        return currentVersion != sandboxVersion
+    }
+    
+    
 }
 
 /// 添加定时器,实时更新微博的条数
