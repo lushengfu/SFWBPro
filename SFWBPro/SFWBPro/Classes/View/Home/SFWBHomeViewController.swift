@@ -38,7 +38,12 @@ class SFWBHomeViewController: SFWBBaseViewController {
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
         navItem.rightBarButtonItem = nil
  
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: statusCell)
+        tableView?.register(UINib(nibName: "SFWBStatusNormalCell", bundle: nil), forCellReuseIdentifier: statusCell)
+        
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 300
+        
+        tableView?.separatorStyle = .none
         // 设置标题view
         setupTitleView()
     }
@@ -98,10 +103,10 @@ extension SFWBHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sCell = tableView.dequeueReusableCell(withIdentifier: statusCell, for: indexPath)
+        let sCell = tableView.dequeueReusableCell(withIdentifier: statusCell, for: indexPath) as! SFWBStatusCell
         
-        sCell.textLabel?.text = listViewModel.statusList[indexPath.row].text
-        sCell.contentView.backgroundColor = UIColor.yw_random()
+        sCell.contentLabel?.text = listViewModel.statusList[indexPath.row].text
+//        sCell.contentView.backgroundColor = UIColor.yw_random()
         
         return sCell
     }

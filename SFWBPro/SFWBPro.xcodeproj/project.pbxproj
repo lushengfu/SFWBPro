@@ -14,6 +14,8 @@
 		3D17AA102053B66300774723 /* SFWBNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17AA0F2053B66300774723 /* SFWBNetworkManager+Extension.swift */; };
 		3D4EE35820592A6D00EA4871 /* SFWBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE35720592A6D00EA4871 /* SFWBStatus.swift */; };
 		3D4EE35A2059334500EA4871 /* SFWBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */; };
+		3D64107D20871CE20057DE6D /* SFWBStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64107C20871CE20057DE6D /* SFWBStatusCell.swift */; };
+		3D64107F20871D2B0057DE6D /* SFWBStatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64107E20871D2B0057DE6D /* SFWBStatusNormalCell.xib */; };
 		3D92A8D2204E9EC300333D9D /* SFWBVistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */; };
 		3DBD992020804B0700842BA8 /* SFWBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD991F20804B0700842BA8 /* SFWBWelcomeView.swift */; };
 		3DBD992220804B3600842BA8 /* SFWBNewfeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD992120804B3600842BA8 /* SFWBNewfeatureView.swift */; };
@@ -79,6 +81,8 @@
 		3D17AA0F2053B66300774723 /* SFWBNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFWBNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		3D4EE35720592A6D00EA4871 /* SFWBStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatus.swift; sourceTree = "<group>"; };
 		3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusListViewModel.swift; sourceTree = "<group>"; };
+		3D64107C20871CE20057DE6D /* SFWBStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusCell.swift; sourceTree = "<group>"; };
+		3D64107E20871D2B0057DE6D /* SFWBStatusNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SFWBStatusNormalCell.xib; sourceTree = "<group>"; };
 		3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBVistorView.swift; sourceTree = "<group>"; };
 		3DBD991F20804B0700842BA8 /* SFWBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBWelcomeView.swift; sourceTree = "<group>"; };
 		3DBD992120804B3600842BA8 /* SFWBNewfeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBNewfeatureView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		3D64107B20871C7D0057DE6D /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D64107C20871CE20057DE6D /* SFWBStatusCell.swift */,
+				3D64107E20871D2B0057DE6D /* SFWBStatusNormalCell.xib */,
+			);
+			path = StatusCell;
+			sourceTree = "<group>";
+		};
 		3DBD991E20804AD100842BA8 /* Newfeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +342,7 @@
 		3DD641B52047F80E00E33A94 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3D64107B20871C7D0057DE6D /* StatusCell */,
 				3DD641C02047FA0500E33A94 /* SFWBHomeViewController.swift */,
 			);
 			path = Home;
@@ -559,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D64107F20871D2B0057DE6D /* SFWBStatusNormalCell.xib in Resources */,
 				3DF4C9C320525902009DAF1E /* main.json in Resources */,
 				3DBD9924208062B100842BA8 /* SFWBWelcomeView.xib in Resources */,
 				3DBD99262080939300842BA8 /* SFWBNewfeatureView.xib in Resources */,
@@ -770,6 +785,7 @@
 				3DD641FE204953C400E33A94 /* SFSecondNavigationBar.swift in Sources */,
 				3DD641EF204808CC00E33A94 /* UILabel+CZAddition.m in Sources */,
 				3DD641F3204808CC00E33A94 /* UIViewController+CZAddition.m in Sources */,
+				3D64107D20871CE20057DE6D /* SFWBStatusCell.swift in Sources */,
 				3DD641EC204808CC00E33A94 /* UIButton+CZAddition.m in Sources */,
 				3D4EE35A2059334500EA4871 /* SFWBStatusListViewModel.swift in Sources */,
 				3DD641C72047FA4700E33A94 /* SFWBProfileViewController.swift in Sources */,
