@@ -16,6 +16,8 @@
 		3D4EE35A2059334500EA4871 /* SFWBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */; };
 		3D64107D20871CE20057DE6D /* SFWBStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64107C20871CE20057DE6D /* SFWBStatusCell.swift */; };
 		3D64107F20871D2B0057DE6D /* SFWBStatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64107E20871D2B0057DE6D /* SFWBStatusNormalCell.xib */; };
+		3D6924D420887B8E00C8F13B /* SFWBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6924D320887B8E00C8F13B /* SFWBUser.swift */; };
+		3D6924D6208894DC00C8F13B /* SFWBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6924D5208894DC00C8F13B /* SFWBStatusViewModel.swift */; };
 		3D92A8D2204E9EC300333D9D /* SFWBVistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */; };
 		3DBD992020804B0700842BA8 /* SFWBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD991F20804B0700842BA8 /* SFWBWelcomeView.swift */; };
 		3DBD992220804B3600842BA8 /* SFWBNewfeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD992120804B3600842BA8 /* SFWBNewfeatureView.swift */; };
@@ -83,6 +85,8 @@
 		3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusListViewModel.swift; sourceTree = "<group>"; };
 		3D64107C20871CE20057DE6D /* SFWBStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusCell.swift; sourceTree = "<group>"; };
 		3D64107E20871D2B0057DE6D /* SFWBStatusNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SFWBStatusNormalCell.xib; sourceTree = "<group>"; };
+		3D6924D320887B8E00C8F13B /* SFWBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBUser.swift; sourceTree = "<group>"; };
+		3D6924D5208894DC00C8F13B /* SFWBStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusViewModel.swift; sourceTree = "<group>"; };
 		3D92A8D1204E9EC300333D9D /* SFWBVistorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBVistorView.swift; sourceTree = "<group>"; };
 		3DBD991F20804B0700842BA8 /* SFWBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBWelcomeView.swift; sourceTree = "<group>"; };
 		3DBD992120804B3600842BA8 /* SFWBNewfeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBNewfeatureView.swift; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4EE35720592A6D00EA4871 /* SFWBStatus.swift */,
+				3D6924D320887B8E00C8F13B /* SFWBUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */,
+				3D6924D5208894DC00C8F13B /* SFWBStatusViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -785,6 +791,7 @@
 				3DD641FE204953C400E33A94 /* SFSecondNavigationBar.swift in Sources */,
 				3DD641EF204808CC00E33A94 /* UILabel+CZAddition.m in Sources */,
 				3DD641F3204808CC00E33A94 /* UIViewController+CZAddition.m in Sources */,
+				3D6924D420887B8E00C8F13B /* SFWBUser.swift in Sources */,
 				3D64107D20871CE20057DE6D /* SFWBStatusCell.swift in Sources */,
 				3DD641EC204808CC00E33A94 /* UIButton+CZAddition.m in Sources */,
 				3D4EE35A2059334500EA4871 /* SFWBStatusListViewModel.swift in Sources */,
@@ -792,6 +799,7 @@
 				3DD641E8204808CC00E33A94 /* NSObject+CZRuntime.m in Sources */,
 				3DD641BB2047F93400E33A94 /* SFWBMainViewController.swift in Sources */,
 				3DD641BD2047F97500E33A94 /* SFWBNavigationViewController.swift in Sources */,
+				3D6924D6208894DC00C8F13B /* SFWBStatusViewModel.swift in Sources */,
 				3DD641F0204808CC00E33A94 /* UIScreen+CZAddition.m in Sources */,
 				3DD641EB204808CC00E33A94 /* NSString+CZPath.m in Sources */,
 				3D17AA102053B66300774723 /* SFWBNetworkManager+Extension.swift in Sources */,

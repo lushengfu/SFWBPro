@@ -11,9 +11,12 @@ import YYModel
 
 class SFWBStatus: NSObject {
 
-    var id : Int64 = 0
+    @objc var id: Int64 = 0
     
-    var text : String?
+    @objc var text: String?
+    
+    /// 微博用户
+    @objc var user: SFWBUser?
     
     override var description: String {
         return yy_modelDescription()

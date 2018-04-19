@@ -14,7 +14,7 @@ private let maxPullupTryTimes = 3
 class SFWBStatusListViewModel {
     
     /// 微博数据源
-    lazy var statusList = [SFWBStatus]()
+    lazy var statusList = [SFWBStatusViewModel]()
     /// 记录上拉刷新的错误次数
     private var pullupErrorTimes = 0
     /// 加载微博数据
@@ -27,29 +27,45 @@ class SFWBStatusListViewModel {
             return
         }
         
-        let since_id : Int64 = pullUp ? 0 : (statusList.first?.id ?? 0)
-        let max_id : Int64 = !pullUp ? 0 : (statusList.last?.id ?? 0)
+        let since_id : Int64 = pullUp ? 0 : (statusList.first?.status.id ?? 0)
+        let max_id : Int64 = !pullUp ? 0 : (statusList.last?.status.id ?? 0)
         
         SFWBNetworkManager.share.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
             
             print("\(String(describing: list))");
             
-            var array = [SFWBStatus]()
-            
-            for dict in list ?? []{
-                print(dict)
-                print(dict["id"] as! NSNumber)
-                print(dict["text"] ?? "")
-                
-                let status = SFWBStatus()
-                status.id = dict["id"] as! Int64
-                status.text = dict["text"] as? String
-                // FIXME: 拼接数据
-                array.append(status)
+//            var array = [SFWBStatus]()
+//
+//            for dict in list ?? []{
+//                print(dict)
+//                print(dict["id"] as! NSNumber)
+//                print(dict["text"] ?? "")
+//
+//                let status = SFWBStatus()
+//                status.id = dict["id"] as! Int64
+//                status.text = dict["text"] as? String
+//                // FIXME: 拼接数据
+//                array.append(status)
+//            }
+            if !isSuccess {
+                complition(false, false)
+                return
             }
             
+            var array = [SFWBStatusViewModel]()
+            
+            for dict in list ?? [] {
+                guard let status = SFWBStatus.yy_model(with: dict) else {
+                    continue
+                }
+                
+                array.append(SFWBStatusViewModel.init(model: status))
+                
+            }
+            
+            
 //            guard let array = NSArray.yy_modelArray(with: SFWBStatus.self, json: list ?? []) as? [SFWBStatus] else {
-//                complition(isSuccess)
+//                complition(isSuccess, false)
 //                return
 //            }
             
