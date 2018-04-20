@@ -34,19 +34,6 @@ class SFWBStatusListViewModel {
             
             print("\(String(describing: list))");
             
-//            var array = [SFWBStatus]()
-//
-//            for dict in list ?? []{
-//                print(dict)
-//                print(dict["id"] as! NSNumber)
-//                print(dict["text"] ?? "")
-//
-//                let status = SFWBStatus()
-//                status.id = dict["id"] as! Int64
-//                status.text = dict["text"] as? String
-//                // FIXME: 拼接数据
-//                array.append(status)
-//            }
             if !isSuccess {
                 complition(false, false)
                 return

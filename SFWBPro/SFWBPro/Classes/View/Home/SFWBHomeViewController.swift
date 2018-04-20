@@ -105,8 +105,9 @@ extension SFWBHomeViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sCell = tableView.dequeueReusableCell(withIdentifier: statusCell, for: indexPath) as! SFWBStatusCell
         
-        sCell.contentLabel?.text = listViewModel.statusList[indexPath.row].status.text
-//        sCell.contentView.backgroundColor = UIColor.yw_random()
+        let vm = listViewModel.statusList[indexPath.row]
+        
+        sCell.viewModel = vm
         
         return sCell
     }

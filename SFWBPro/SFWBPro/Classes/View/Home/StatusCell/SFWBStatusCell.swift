@@ -9,6 +9,20 @@
 import UIKit
 
 class SFWBStatusCell: UITableViewCell {
+    
+    var viewModel: SFWBStatusViewModel? {
+        didSet {
+            contentLabel.text = viewModel?.status.text
+            nameLabel.text = viewModel?.status.user?.screen_name
+            /// 会员等级
+            memberImgView.image = viewModel?.memberIcon
+            /// 认证等级
+            vipImgView.image = viewModel?.vipIcon
+            /// 用户图标设置
+            iconImgView.sf_setImage(urlStr: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage.init(named: "avatar_default_big"), isAvatar: true)
+        }
+    }
+    
 
     /// 用户图标
     @IBOutlet weak var iconImgView: UIImageView!
@@ -35,7 +49,7 @@ class SFWBStatusCell: UITableViewCell {
         super.awakeFromNib()
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
