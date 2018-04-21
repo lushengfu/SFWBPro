@@ -20,6 +20,12 @@ class SFWBStatusCell: UITableViewCell {
             vipImgView.image = viewModel?.vipIcon
             /// 用户图标设置
             iconImgView.sf_setImage(urlStr: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage.init(named: "avatar_default_big"), isAvatar: true)
+            
+            statusToolBar.viewModel = viewModel
+            
+            statusPictureView.pictureHeightCons.constant = 100
+            
+            print(viewModel?.status.pic_urls ?? [])
         }
     }
     
@@ -44,6 +50,12 @@ class SFWBStatusCell: UITableViewCell {
     
     /// 正文图标
     @IBOutlet weak var contentLabel: UILabel!
+    
+    /// 底部工具栏
+    @IBOutlet weak var statusToolBar: SFWBStatusToolBar!
+    
+    /// 配图视图
+    @IBOutlet weak var statusPictureView: SFWBStatusPictureView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

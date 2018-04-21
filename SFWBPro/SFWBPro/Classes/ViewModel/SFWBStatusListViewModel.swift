@@ -45,12 +45,13 @@ class SFWBStatusListViewModel {
                 guard let status = SFWBStatus.yy_model(with: dict) else {
                     continue
                 }
-                
+
                 array.append(SFWBStatusViewModel.init(model: status))
                 
+//                print(status.pic_urls ?? [])
             }
             
-            
+//            print(array)
 //            guard let array = NSArray.yy_modelArray(with: SFWBStatus.self, json: list ?? []) as? [SFWBStatus] else {
 //                complition(isSuccess, false)
 //                return

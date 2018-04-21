@@ -14,6 +14,9 @@
 		3D17AA102053B66300774723 /* SFWBNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17AA0F2053B66300774723 /* SFWBNetworkManager+Extension.swift */; };
 		3D43BE6F2089E8900064E5AC /* UIImageViwe+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D43BE6E2089E8900064E5AC /* UIImageViwe+WebImage.swift */; };
 		3D43BE712089EEB30064E5AC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D43BE702089EEB30064E5AC /* UIImage+Extension.swift */; };
+		3D476A9E208AECFA007D461D /* SFWBStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D476A9D208AECFA007D461D /* SFWBStatusToolBar.swift */; };
+		3D476AA0208B2425007D461D /* SFWBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D476A9F208B2425007D461D /* SFWBStatusPictureView.swift */; };
+		3D476AA2208B3692007D461D /* SFWBStatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D476AA1208B3692007D461D /* SFWBStatusPicture.swift */; };
 		3D4EE35820592A6D00EA4871 /* SFWBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE35720592A6D00EA4871 /* SFWBStatus.swift */; };
 		3D4EE35A2059334500EA4871 /* SFWBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */; };
 		3D64107D20871CE20057DE6D /* SFWBStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64107C20871CE20057DE6D /* SFWBStatusCell.swift */; };
@@ -85,6 +88,9 @@
 		3D17AA0F2053B66300774723 /* SFWBNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFWBNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		3D43BE6E2089E8900064E5AC /* UIImageViwe+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageViwe+WebImage.swift"; sourceTree = "<group>"; };
 		3D43BE702089EEB30064E5AC /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3D476A9D208AECFA007D461D /* SFWBStatusToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusToolBar.swift; sourceTree = "<group>"; };
+		3D476A9F208B2425007D461D /* SFWBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusPictureView.swift; sourceTree = "<group>"; };
+		3D476AA1208B3692007D461D /* SFWBStatusPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusPicture.swift; sourceTree = "<group>"; };
 		3D4EE35720592A6D00EA4871 /* SFWBStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatus.swift; sourceTree = "<group>"; };
 		3D4EE3592059334500EA4871 /* SFWBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusListViewModel.swift; sourceTree = "<group>"; };
 		3D64107C20871CE20057DE6D /* SFWBStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFWBStatusCell.swift; sourceTree = "<group>"; };
@@ -224,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				3D64107C20871CE20057DE6D /* SFWBStatusCell.swift */,
+				3D476A9D208AECFA007D461D /* SFWBStatusToolBar.swift */,
+				3D476A9F208B2425007D461D /* SFWBStatusPictureView.swift */,
 				3D64107E20871D2B0057DE6D /* SFWBStatusNormalCell.xib */,
 			);
 			path = StatusCell;
@@ -309,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4EE35720592A6D00EA4871 /* SFWBStatus.swift */,
+				3D476AA1208B3692007D461D /* SFWBStatusPicture.swift */,
 				3D6924D320887B8E00C8F13B /* SFWBUser.swift */,
 			);
 			path = Model;
@@ -778,6 +787,8 @@
 				3DBD992020804B0700842BA8 /* SFWBWelcomeView.swift in Sources */,
 				3DD641ED204808CC00E33A94 /* UIColor+CZAddition.m in Sources */,
 				3D4EE35820592A6D00EA4871 /* SFWBStatus.swift in Sources */,
+				3D476A9E208AECFA007D461D /* SFWBStatusToolBar.swift in Sources */,
+				3D476AA0208B2425007D461D /* SFWBStatusPictureView.swift in Sources */,
 				3DD641E6204808CC00E33A94 /* NSArray+Log.m in Sources */,
 				3DD641FC20493BBA00E33A94 /* UIBarButtonItem+Extension.swift in Sources */,
 				3D0B268D207C934A00232B55 /* SFWBUserAccount.swift in Sources */,
@@ -793,6 +804,7 @@
 				3DD641C52047FA3A00E33A94 /* SFWBDiscoverViewController.swift in Sources */,
 				3DD641C12047FA0500E33A94 /* SFWBHomeViewController.swift in Sources */,
 				3DD641F2204808CC00E33A94 /* UIView+JKFrame.m in Sources */,
+				3D476AA2208B3692007D461D /* SFWBStatusPicture.swift in Sources */,
 				3DD641F72048EC5E00E33A94 /* Bundle+Extension.swift in Sources */,
 				3DD641832047E9D600E33A94 /* AppDelegate.swift in Sources */,
 				3DD641FE204953C400E33A94 /* SFSecondNavigationBar.swift in Sources */,

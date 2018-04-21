@@ -18,6 +18,15 @@ class SFWBStatusViewModel: CustomStringConvertible {
     /// 认证图标
     var vipIcon: UIImage?
     
+    /// 转发字符串
+    var retweetStr: String?
+    
+    /// 评论字符串
+    var commentStr: String?
+    
+    /// 点赞字符串
+    var likeStr: String?
+    
     
     /// 构造函数,保存模型
     init(model: SFWBStatus) {
@@ -44,6 +53,24 @@ class SFWBStatusViewModel: CustomStringConvertible {
         default:
             return
         }
+        
+        retweetStr = countString(count: model.reposts_count, defaultStr: "转发")
+        commentStr = countString(count: model.comments_count, defaultStr: "评论")
+        likeStr = countString(count: model.attitudes_count, defaultStr: "赞")
+        
+    }
+    
+    private func countString(count: Int, defaultStr: String) -> String {
+        
+        if count == 0 {
+            return defaultStr
+        }
+        
+        if count < 10000 {
+            return count.description
+        }
+        
+        return String.init(format: "%.02f", Double(count) / 10000)
     }
     
     var description: String {
