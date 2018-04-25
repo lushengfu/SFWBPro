@@ -23,9 +23,13 @@ class SFWBStatusCell: UITableViewCell {
             
             statusToolBar.viewModel = viewModel
             
-            statusPictureView.pictureHeightCons.constant = 100
+//            statusPictureView.pictureHeightCons.constant = 100
+//
+//            print(viewModel?.status.pic_urls ?? [])
             
-            print(viewModel?.status.pic_urls ?? [])
+            statusPictureView.pictureHeightCons.constant = viewModel?.pictureViewSize.height ?? 0
+            
+            statusPictureView.urls = viewModel?.status.pic_urls
         }
     }
     

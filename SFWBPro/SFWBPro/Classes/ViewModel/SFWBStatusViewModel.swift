@@ -27,6 +27,9 @@ class SFWBStatusViewModel: CustomStringConvertible {
     /// 点赞字符串
     var likeStr: String?
     
+    /// 配图视图的size
+    var pictureViewSize: CGSize = CGSize()
+    
     
     /// 构造函数,保存模型
     init(model: SFWBStatus) {
@@ -51,13 +54,29 @@ class SFWBStatusViewModel: CustomStringConvertible {
         case 220:
             vipIcon = UIImage.init(named: "avatar_grassroot")
         default:
-            return
+            vipIcon = nil
         }
         
         retweetStr = countString(count: model.reposts_count, defaultStr: "转发")
         commentStr = countString(count: model.comments_count, defaultStr: "评论")
         likeStr = countString(count: model.attitudes_count, defaultStr: "赞")
         
+        pictureViewSize = calcPictureViewSize(count: model.pic_urls?.count)
+    }
+    
+    /// 根据配图视图计算行高
+    private func calcPictureViewSize(count: Int?) -> CGSize {
+        
+        if count == 0 || count == nil {
+            return CGSize()
+        }
+        
+        let row = (count! - 1)/3 + 1
+        
+        let pictureViewHeight = SFWBStatusPictureViewOutterMargin + CGFloat(row) * SFWBStatusPictureItemWidth + CGFloat(row - 1) * SFWBStatusPictureViewInnerMargin
+        
+        
+        return CGSize(width: SFWBStatusPictureViewWidth, height: pictureViewHeight)
     }
     
     private func countString(count: Int, defaultStr: String) -> String {
@@ -67,7 +86,7 @@ class SFWBStatusViewModel: CustomStringConvertible {
         }
         
         if count < 10000 {
-            return count.description
+            return "\(count)"
         }
         
         return String.init(format: "%.02f", Double(count) / 10000)

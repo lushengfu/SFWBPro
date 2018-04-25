@@ -55,7 +55,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_vip" translatesAutoresizingMaskIntoConstraints="NO" id="UwD-Ro-EpM" userLabel="用户等级">
-                        <rect key="frame" x="39" y="49" width="14" height="14"/>
+                        <rect key="frame" x="34" y="44" width="14" height="14"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukc-tp-hZo" userLabel="正文">
                         <rect key="frame" x="12" y="67" width="33" height="16"/>
@@ -122,7 +122,7 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDu-uy-XK4" userLabel="配图视图" customClass="SFWBStatusPictureView" customModule="SFWBPro" customModuleProvider="target">
                         <rect key="frame" x="12" y="83" width="351" height="210.5"/>
-                        <color key="backgroundColor" red="1" green="0.75316220229999997" blue="0.49890291349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="210.5" id="9OE-7x-ra9"/>
                         </constraints>
@@ -152,9 +152,9 @@
                     <constraint firstItem="IDu-uy-XK4" firstAttribute="top" secondItem="ukc-tp-hZo" secondAttribute="bottom" id="i7l-8t-MqN"/>
                     <constraint firstItem="bHE-Zf-MQt" firstAttribute="leading" secondItem="Sag-fE-ThT" secondAttribute="trailing" constant="11" id="icW-vh-gdw"/>
                     <constraint firstItem="wEv-tG-XrH" firstAttribute="leading" secondItem="Rj7-um-22L" secondAttribute="trailing" constant="6" id="jgP-bF-HMh"/>
-                    <constraint firstItem="UwD-Ro-EpM" firstAttribute="centerX" secondItem="Sag-fE-ThT" secondAttribute="trailing" id="lu4-kn-Dvv"/>
+                    <constraint firstItem="UwD-Ro-EpM" firstAttribute="centerX" secondItem="Sag-fE-ThT" secondAttribute="trailing" constant="-5" id="lu4-kn-Dvv"/>
                     <constraint firstItem="wEv-tG-XrH" firstAttribute="centerY" secondItem="Rj7-um-22L" secondAttribute="centerY" id="uvs-1F-3l1"/>
-                    <constraint firstItem="UwD-Ro-EpM" firstAttribute="centerY" secondItem="Sag-fE-ThT" secondAttribute="bottom" id="wfz-UY-qna"/>
+                    <constraint firstItem="UwD-Ro-EpM" firstAttribute="centerY" secondItem="Sag-fE-ThT" secondAttribute="bottom" constant="-5" id="wfz-UY-qna"/>
                     <constraint firstAttribute="trailing" secondItem="IDu-uy-XK4" secondAttribute="trailing" constant="12" id="x5v-dj-4u7"/>
                     <constraint firstItem="rCr-ic-TDk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IDu-uy-XK4" secondAttribute="bottom" constant="12" id="z7N-4O-iAb"/>
                 </constraints>
