@@ -69,9 +69,32 @@ class SFWBStatusListViewModel {
                 self.pullupErrorTimes += 1
                 complition(isSuccess, false)
             } else {
+                
+                self.cacheSingleImage(list: array)
+                
                 complition(isSuccess, true)
             }
             
+            
+        }
+        
+    }
+    
+    /// 缓存单张图片
+    private func cacheSingleImage(list: [SFWBStatusViewModel]) {
+        
+        for vm in list {
+            
+            if vm.picURLs?.count != 1 {
+                continue
+            }
+            
+            guard let picStr = vm.picURLs![0].thumbnail_pic,
+                let picURL = URL.init(string: picStr) else {
+                    continue
+            }
+            
+            print(" 要缓存的 URL 是 \(picURL) ")
             
         }
         

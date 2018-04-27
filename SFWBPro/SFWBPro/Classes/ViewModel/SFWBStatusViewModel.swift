@@ -27,6 +27,16 @@ class SFWBStatusViewModel: CustomStringConvertible {
     /// 点赞字符串
     var likeStr: String?
     
+    /// 被转发微博的正文
+    var retweetedText: String?
+    
+    
+    /// 有转发微博,就返回转发微博的图片, 否则返回原创微博的图片
+    var picURLs: [SFWBStatusPicture]? {
+        return status.retweeted_status?.pic_urls ?? status.pic_urls
+    }
+    
+    
     /// 配图视图的size
     var pictureViewSize: CGSize = CGSize()
     
@@ -61,7 +71,11 @@ class SFWBStatusViewModel: CustomStringConvertible {
         commentStr = countString(count: model.comments_count, defaultStr: "评论")
         likeStr = countString(count: model.attitudes_count, defaultStr: "赞")
         
-        pictureViewSize = calcPictureViewSize(count: model.pic_urls?.count)
+        pictureViewSize = calcPictureViewSize(count:picURLs?.count)
+        
+
+        retweetedText = "@" + (model.retweeted_status?.user?.screen_name ?? "") + ":"
+        retweetedText = retweetedText! + (model.retweeted_status?.text ?? "")
     }
     
     /// 根据配图视图计算行高

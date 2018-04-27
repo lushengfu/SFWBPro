@@ -29,7 +29,10 @@ class SFWBStatusCell: UITableViewCell {
             
             statusPictureView.pictureHeightCons.constant = viewModel?.pictureViewSize.height ?? 0
             
-            statusPictureView.urls = viewModel?.status.pic_urls
+            statusPictureView.urls = viewModel?.picURLs
+            
+            /// 转发微博正文
+            retweetedLabel?.text = viewModel?.retweetedText
         }
     }
     
@@ -54,6 +57,9 @@ class SFWBStatusCell: UITableViewCell {
     
     /// 正文图标
     @IBOutlet weak var contentLabel: UILabel!
+    
+    /// 被转发微博的内容
+    @IBOutlet weak var retweetedLabel: UILabel?
     
     /// 底部工具栏
     @IBOutlet weak var statusToolBar: SFWBStatusToolBar!

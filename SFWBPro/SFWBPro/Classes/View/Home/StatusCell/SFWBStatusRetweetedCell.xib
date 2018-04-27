@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="346" id="oht-c7-mpd" customClass="SFWBStatusCell" customModule="SFWBPro" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="346"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="469" id="oht-c7-mpd" customClass="SFWBStatusCell" customModule="SFWBPro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="469"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oht-c7-mpd" id="Utb-30-DnC">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="345.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="468.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afj-We-El2" userLabel="topSpaceView">
@@ -63,20 +63,23 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqD-Ij-FzO" userLabel="转发微博底部背景视图">
+                        <rect key="frame" x="0.0" y="100" width="375" height="333.5"/>
+                        <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huW-zv-sdm" userLabel="转发微博正文">
+                        <rect key="frame" x="12" y="112" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCr-ic-TDk" userLabel="底部工具栏" customClass="SFWBStatusToolBar" customModule="SFWBPro" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="310.5" width="375" height="35"/>
+                        <rect key="frame" x="0.0" y="433.5" width="375" height="35"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TE-Fi-LYl">
                                 <rect key="frame" x="0.0" y="0.0" width="125" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="转发" image="timeline_icon_retweet" backgroundImage="timeline_card_bottom_background">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVt-3J-k0G">
-                                <rect key="frame" x="125" y="0.0" width="125" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="评论" image="timeline_icon_comment" backgroundImage="timeline_card_bottom_background">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -93,6 +96,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeline_card_bottom_line" translatesAutoresizingMaskIntoConstraints="NO" id="zO5-TJ-FmO">
                                 <rect key="frame" x="250" y="17" width="1" height="1"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVt-3J-k0G">
+                                <rect key="frame" x="125" y="0.0" width="125" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="评论" image="timeline_icon_comment" backgroundImage="timeline_card_bottom_background">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -121,8 +131,8 @@
                         </connections>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDu-uy-XK4" userLabel="配图视图" customClass="SFWBStatusPictureView" customModule="SFWBPro" customModuleProvider="target">
-                        <rect key="frame" x="12" y="88" width="351" height="210.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="12" y="129" width="351" height="210.5"/>
+                        <color key="backgroundColor" red="1" green="0.75316220229999997" blue="0.49890291349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="210.5" id="9OE-7x-ra9"/>
                         </constraints>
@@ -135,6 +145,7 @@
                     <constraint firstItem="eR2-o9-d71" firstAttribute="centerY" secondItem="bHE-Zf-MQt" secondAttribute="centerY" id="0Sa-of-W51"/>
                     <constraint firstItem="IDu-uy-XK4" firstAttribute="leading" secondItem="ukc-tp-hZo" secondAttribute="leading" id="3iH-tq-2bT"/>
                     <constraint firstItem="ukc-tp-hZo" firstAttribute="leading" secondItem="Sag-fE-ThT" secondAttribute="leading" id="6HW-LU-Ces"/>
+                    <constraint firstItem="DqD-Ij-FzO" firstAttribute="top" secondItem="ukc-tp-hZo" secondAttribute="bottom" constant="12" id="AYa-7h-HlP"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ukc-tp-hZo" secondAttribute="trailing" constant="11" id="MLX-IG-1SF"/>
                     <constraint firstItem="eR2-o9-d71" firstAttribute="leading" secondItem="bHE-Zf-MQt" secondAttribute="trailing" constant="4" id="P9h-hc-lJb"/>
                     <constraint firstItem="Afj-We-El2" firstAttribute="leading" secondItem="Utb-30-DnC" secondAttribute="leading" id="PB4-bo-U9o"/>
@@ -147,15 +158,21 @@
                     <constraint firstAttribute="bottom" secondItem="rCr-ic-TDk" secondAttribute="bottom" id="cDq-3y-HYW"/>
                     <constraint firstItem="Afj-We-El2" firstAttribute="top" secondItem="Utb-30-DnC" secondAttribute="top" id="dAx-BP-EDb"/>
                     <constraint firstItem="Rj7-um-22L" firstAttribute="leading" secondItem="bHE-Zf-MQt" secondAttribute="leading" id="dhc-Un-yyT"/>
+                    <constraint firstItem="DqD-Ij-FzO" firstAttribute="leading" secondItem="Utb-30-DnC" secondAttribute="leading" id="es2-JO-PpN"/>
                     <constraint firstItem="Sag-fE-ThT" firstAttribute="leading" secondItem="Utb-30-DnC" secondAttribute="leading" constant="12" id="gYi-ru-jae"/>
                     <constraint firstItem="bHE-Zf-MQt" firstAttribute="top" secondItem="Sag-fE-ThT" secondAttribute="top" constant="4" id="gbb-k6-m8o"/>
-                    <constraint firstItem="IDu-uy-XK4" firstAttribute="top" secondItem="ukc-tp-hZo" secondAttribute="bottom" id="i7l-8t-MqN"/>
+                    <constraint firstItem="rCr-ic-TDk" firstAttribute="top" secondItem="DqD-Ij-FzO" secondAttribute="bottom" id="hVQ-cv-rvo"/>
                     <constraint firstItem="bHE-Zf-MQt" firstAttribute="leading" secondItem="Sag-fE-ThT" secondAttribute="trailing" constant="11" id="icW-vh-gdw"/>
+                    <constraint firstItem="IDu-uy-XK4" firstAttribute="top" secondItem="huW-zv-sdm" secondAttribute="bottom" id="igk-Rk-z9s"/>
                     <constraint firstItem="wEv-tG-XrH" firstAttribute="leading" secondItem="Rj7-um-22L" secondAttribute="trailing" constant="6" id="jgP-bF-HMh"/>
                     <constraint firstItem="UwD-Ro-EpM" firstAttribute="centerX" secondItem="Sag-fE-ThT" secondAttribute="trailing" constant="-5" id="lu4-kn-Dvv"/>
+                    <constraint firstItem="huW-zv-sdm" firstAttribute="leading" secondItem="DqD-Ij-FzO" secondAttribute="leading" constant="12" id="nkM-YK-WnD"/>
+                    <constraint firstAttribute="trailing" secondItem="DqD-Ij-FzO" secondAttribute="trailing" id="ulR-3J-Fmu"/>
                     <constraint firstItem="wEv-tG-XrH" firstAttribute="centerY" secondItem="Rj7-um-22L" secondAttribute="centerY" id="uvs-1F-3l1"/>
                     <constraint firstItem="UwD-Ro-EpM" firstAttribute="centerY" secondItem="Sag-fE-ThT" secondAttribute="bottom" constant="-5" id="wfz-UY-qna"/>
+                    <constraint firstItem="huW-zv-sdm" firstAttribute="top" secondItem="DqD-Ij-FzO" secondAttribute="top" constant="12" id="wn7-YR-IwJ"/>
                     <constraint firstAttribute="trailing" secondItem="IDu-uy-XK4" secondAttribute="trailing" constant="12" id="x5v-dj-4u7"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="huW-zv-sdm" secondAttribute="trailing" constant="12" id="xTe-mN-tia"/>
                     <constraint firstItem="rCr-ic-TDk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IDu-uy-XK4" secondAttribute="bottom" constant="12" id="z7N-4O-iAb"/>
                 </constraints>
             </tableViewCellContentView>
@@ -164,13 +181,14 @@
                 <outlet property="iconImgView" destination="Sag-fE-ThT" id="iif-7r-ie3"/>
                 <outlet property="memberImgView" destination="eR2-o9-d71" id="Oei-II-VBx"/>
                 <outlet property="nameLabel" destination="bHE-Zf-MQt" id="Vaz-Zt-yfn"/>
+                <outlet property="retweetedLabel" destination="huW-zv-sdm" id="eS3-Hl-soQ"/>
                 <outlet property="sourceLabel" destination="wEv-tG-XrH" id="xlO-aK-iNg"/>
                 <outlet property="statusPictureView" destination="IDu-uy-XK4" id="n2h-ey-m8Q"/>
                 <outlet property="statusToolBar" destination="rCr-ic-TDk" id="jde-Qe-D9i"/>
                 <outlet property="timeLabel" destination="Rj7-um-22L" id="FML-fX-phE"/>
                 <outlet property="vipImgView" destination="UwD-Ro-EpM" id="JZq-DW-xMA"/>
             </connections>
-            <point key="canvasLocation" x="-1150.5" y="95"/>
+            <point key="canvasLocation" x="-1404" y="143"/>
         </tableViewCell>
     </objects>
     <resources>

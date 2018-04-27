@@ -74,7 +74,6 @@ extension SFWBStatusPictureView {
             let row = CGFloat(i/count)
             let cal = CGFloat(i%count)
             
-            
             let offsetX = cal * (SFWBStatusPictureItemWidth + SFWBStatusPictureViewInnerMargin)
             let offsetY = row * (SFWBStatusPictureItemWidth + SFWBStatusPictureViewInnerMargin)
             

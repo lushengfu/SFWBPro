@@ -8,7 +8,10 @@
 
 import UIKit
 
-private let statusCell = "statusCell"
+/// 原创微博的cell id
+private let originalStatusCell = "originalStatusCell"
+/// 被转发微博的cell id
+private let retweetedStatusCell = "retweetedStatusCell"
 /// 标题的图片和文本的间距
 private let homeTitlePadding: CGFloat = 12.0
 
@@ -38,7 +41,8 @@ class SFWBHomeViewController: SFWBBaseViewController {
         navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, selector: #selector(showFriends))
         navItem.rightBarButtonItem = nil
  
-        tableView?.register(UINib(nibName: "SFWBStatusNormalCell", bundle: nil), forCellReuseIdentifier: statusCell)
+        tableView?.register(UINib(nibName: "SFWBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalStatusCell)
+        tableView?.register(UINib(nibName: "SFWBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedStatusCell)
         
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 300
@@ -103,9 +107,12 @@ extension SFWBHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sCell = tableView.dequeueReusableCell(withIdentifier: statusCell, for: indexPath) as! SFWBStatusCell
-        
         let vm = listViewModel.statusList[indexPath.row]
+        
+        let cellId = (vm.status.retweeted_status != nil) ? retweetedStatusCell : originalStatusCell
+        
+        let sCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SFWBStatusCell
+        
         
         sCell.viewModel = vm
         

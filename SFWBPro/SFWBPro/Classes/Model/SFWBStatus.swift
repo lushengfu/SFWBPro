@@ -13,6 +13,7 @@ import YYModel
 
     var id: Int64 = 0
     
+    /// 正文
     var text: String?
     
     /// 转发数
@@ -29,6 +30,10 @@ import YYModel
     
     /// 微博配图
     var pic_urls: [SFWBStatusPicture]?
+    
+    /// 被转发微博
+    var retweeted_status: SFWBStatus?
+    
     
     override var description: String {
         return yy_modelDescription()
