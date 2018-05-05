@@ -30,6 +30,9 @@ class SFWBStatusViewModel: CustomStringConvertible {
     /// 被转发微博的正文
     var retweetedText: String?
     
+    /// 行高
+    var rowHeight: CGFloat = 0
+    
     
     /// 有转发微博,就返回转发微博的图片, 否则返回原创微博的图片
     var picURLs: [SFWBStatusPicture]? {
@@ -76,6 +79,59 @@ class SFWBStatusViewModel: CustomStringConvertible {
 
         retweetedText = "@" + (model.retweeted_status?.user?.screen_name ?? "") + ":"
         retweetedText = retweetedText! + (model.retweeted_status?.text ?? "")
+        
+        // 缓存行高
+        updateRowHeight()
+    }
+    
+    /// 计算cell 的行高
+    func updateRowHeight() {
+        //原创微博: 顶部视图高度(12) + 间距(12) + 图像高度(34) + 间距(12) + 正文高度(计算) + 配图视图高度 + 间距(12) + 底部视图高度(35)
+        
+        //被转发微博: 顶部视图高度(12) + 间距(12) + 图像高度(34) + 间距(12) + 正文高度(计算)  + 间距(12)*2 + 转发微博正文高度(计算) + 配图视图高度 + 间距(12) + 底部视图高度(35)
+        
+        let margin: CGFloat = 12
+        let iconHeight: CGFloat = 34
+        let toolbarHeight: CGFloat = 35
+        
+        var height: CGFloat = 0
+        
+        let textSize = CGSize(width: UIScreen.yw_screenWidth() - 2*margin, height: CGFloat(MAXFLOAT))
+        let originFont = UIFont.systemFont(ofSize: 15)
+        let retweetFont = UIFont.systemFont(ofSize: 14)
+        
+        height += margin * 2 + iconHeight + margin
+        
+        if let text = status.text {
+            height += (text as NSString).boundingRect(with: textSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font : originFont], context: nil).height
+        }
+        
+        if status.retweeted_status != nil {
+            
+            height += margin * 2
+            
+            if let text = retweetedText {
+                height += (text as NSString).boundingRect(with: textSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font : retweetFont], context: nil).height
+            }
+            
+        }
+        
+        height += pictureViewSize.height
+        
+        height += margin + toolbarHeight
+        
+        rowHeight = height
+        
+    }
+    
+    /// 更新单张图片视图的尺寸
+    func updateSingleImage(image: UIImage) {
+        var size = image.size
+        size.height += SFWBStatusPictureViewOutterMargin
+        
+        pictureViewSize = size
+        
+        updateRowHeight()
     }
     
     /// 根据配图视图计算行高

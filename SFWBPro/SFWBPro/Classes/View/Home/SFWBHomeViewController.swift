@@ -44,7 +44,7 @@ class SFWBHomeViewController: SFWBBaseViewController {
         tableView?.register(UINib(nibName: "SFWBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalStatusCell)
         tableView?.register(UINib(nibName: "SFWBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedStatusCell)
         
-        tableView?.rowHeight = UITableViewAutomaticDimension
+//        tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 300
         
         tableView?.separatorStyle = .none
@@ -117,5 +117,11 @@ extension SFWBHomeViewController {
         sCell.viewModel = vm
         
         return sCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let vm = listViewModel.statusList[indexPath.row]
+        
+        return vm.rowHeight
     }
 }

@@ -63,6 +63,16 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDu-uy-XK4" userLabel="配图视图" customClass="SFWBStatusPictureView" customModule="SFWBPro" customModuleProvider="target">
+                        <rect key="frame" x="12" y="88" width="351" height="210.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="210.5" id="9OE-7x-ra9"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="pictureHeightCons" destination="9OE-7x-ra9" id="784-2c-iGG"/>
+                        </connections>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCr-ic-TDk" userLabel="底部工具栏" customClass="SFWBStatusToolBar" customModule="SFWBPro" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="310.5" width="375" height="35"/>
                         <subviews>
@@ -120,22 +130,12 @@
                             <outlet property="retweetButton" destination="7TE-Fi-LYl" id="6Lp-zC-83a"/>
                         </connections>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDu-uy-XK4" userLabel="配图视图" customClass="SFWBStatusPictureView" customModule="SFWBPro" customModuleProvider="target">
-                        <rect key="frame" x="12" y="88" width="351" height="210.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="210.5" id="9OE-7x-ra9"/>
-                        </constraints>
-                        <connections>
-                            <outlet property="pictureHeightCons" destination="9OE-7x-ra9" id="784-2c-iGG"/>
-                        </connections>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="eR2-o9-d71" firstAttribute="centerY" secondItem="bHE-Zf-MQt" secondAttribute="centerY" id="0Sa-of-W51"/>
                     <constraint firstItem="IDu-uy-XK4" firstAttribute="leading" secondItem="ukc-tp-hZo" secondAttribute="leading" id="3iH-tq-2bT"/>
                     <constraint firstItem="ukc-tp-hZo" firstAttribute="leading" secondItem="Sag-fE-ThT" secondAttribute="leading" id="6HW-LU-Ces"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ukc-tp-hZo" secondAttribute="trailing" constant="11" id="MLX-IG-1SF"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ukc-tp-hZo" secondAttribute="trailing" constant="12" id="MLX-IG-1SF"/>
                     <constraint firstItem="eR2-o9-d71" firstAttribute="leading" secondItem="bHE-Zf-MQt" secondAttribute="trailing" constant="4" id="P9h-hc-lJb"/>
                     <constraint firstItem="Afj-We-El2" firstAttribute="leading" secondItem="Utb-30-DnC" secondAttribute="leading" id="PB4-bo-U9o"/>
                     <constraint firstItem="ukc-tp-hZo" firstAttribute="top" secondItem="Sag-fE-ThT" secondAttribute="bottom" constant="12" id="Q8T-3U-E8i"/>

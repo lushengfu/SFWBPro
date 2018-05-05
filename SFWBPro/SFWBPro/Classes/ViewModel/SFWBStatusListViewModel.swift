@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 
 /// 上拉刷新错误的最大次数
 private let maxPullupTryTimes = 3
@@ -70,9 +71,9 @@ class SFWBStatusListViewModel {
                 complition(isSuccess, false)
             } else {
                 
-                self.cacheSingleImage(list: array)
+                self.cacheSingleImage(list: array, finished: complition)
                 
-                complition(isSuccess, true)
+//                complition(isSuccess, true)
             }
             
             
@@ -81,7 +82,11 @@ class SFWBStatusListViewModel {
     }
     
     /// 缓存单张图片
-    private func cacheSingleImage(list: [SFWBStatusViewModel]) {
+    private func cacheSingleImage(list: [SFWBStatusViewModel], finished: @escaping (_ isSuccess: Bool, _ shouldRefrsh: Bool)->()) {
+        
+        var lenght = 0
+        
+        let group = DispatchGroup()
         
         for vm in list {
             
@@ -95,7 +100,27 @@ class SFWBStatusListViewModel {
             }
             
             print(" 要缓存的 URL 是 \(picURL) ")
+            group.enter()
+            SDWebImageManager.shared().imageDownloader?.downloadImage(with: picURL, options: [], progress: nil, completed: { (image, _, _, _) in
+
+                if let image = image,
+                    let data = UIImagePNGRepresentation(image)
+                {
+                    lenght = data.count
+                    
+                    vm.updateSingleImage(image: image)
+                }
+                
+                print(" 要缓存的 image 是 \(String(describing: image)) 长度 \(lenght)")
+                group.leave()
+            })
             
+        }
+        
+        group.notify(queue: DispatchQueue.main) {
+            print(" 所有缓存的 image  长度 \(lenght / 1024) k")
+            
+            finished(true, true)
         }
         
     }

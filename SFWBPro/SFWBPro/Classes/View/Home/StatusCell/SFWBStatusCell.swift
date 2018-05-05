@@ -27,7 +27,8 @@ class SFWBStatusCell: UITableViewCell {
 //
 //            print(viewModel?.status.pic_urls ?? [])
             
-            statusPictureView.pictureHeightCons.constant = viewModel?.pictureViewSize.height ?? 0
+            statusPictureView.viewModel = viewModel
+//            statusPictureView.pictureHeightCons.constant = viewModel?.pictureViewSize.height ?? 0
             
             statusPictureView.urls = viewModel?.picURLs
             

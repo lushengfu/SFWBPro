@@ -10,6 +10,36 @@ import UIKit
 
 class SFWBStatusPictureView: UIView {
     
+    var viewModel: SFWBStatusViewModel? {
+        didSet {
+            calcViewSize()
+        }
+    }
+    
+    private func calcViewSize() {
+        
+        if viewModel?.picURLs?.count == 1 {
+            // 单张图片imageView的frame
+            let viewSize = viewModel?.pictureViewSize ?? CGSize()
+            
+            let iv = subviews[0]
+            iv.frame = CGRect(x: 0,
+                              y: SFWBStatusPictureViewOutterMargin,
+                              width: viewSize.width,
+                              height: viewSize.height - SFWBStatusPictureViewOutterMargin)
+            
+            
+        } else {
+            let iv = subviews[0]
+            iv.frame = CGRect(x: 0,
+                              y: SFWBStatusPictureViewOutterMargin,
+                              width: SFWBStatusPictureItemWidth,
+                              height: SFWBStatusPictureItemWidth)
+        }
+        
+        pictureHeightCons.constant = viewModel?.pictureViewSize.height ?? 0
+    }
+    
     var urls: [SFWBStatusPicture]? {
         didSet {
             
